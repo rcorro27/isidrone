@@ -17,7 +17,7 @@ public class ActionCart {
 
 	public static Cart getCart(HttpServletRequest request) {
 		HttpSession session = MSession.getSession(request);
-		Cart cart = (Cart) session.getAttribute("cart");
+		Cart cart = (Cart) session.getAttribute("cart")
 
 		return cart;
 	}
