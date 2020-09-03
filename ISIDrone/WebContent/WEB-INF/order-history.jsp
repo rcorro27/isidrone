@@ -51,7 +51,7 @@
     						%>
     							
 	    							<tr>
-	    								<td style=":hover"><%="<a href='order?no=" + i + "'>" + order.getId() + "</a>"%></td>
+	    								<td style="hover"><%="<a href='order?no=" + i + "'>" + order.getId() + "</a>"%></td>
 	    								<td class="text-center"><%=order.getDate()%></td>
 	    								<td class="text-center">
 	    								<%
