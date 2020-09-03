@@ -81,7 +81,7 @@
 [type="checkbox"]:not(:checked) + label::after, [type="checkbox"]:checked + label::after, [type="radio"]:not(:checked) + label::after, [type="radio"]:checked + label::after {
     position: absolute;
     color: #555;
-    transition: all 0.2s ease 0s;1
+    transition: all 0.2s ease 0s;
 }
 
 .form-horizontal .control-label {

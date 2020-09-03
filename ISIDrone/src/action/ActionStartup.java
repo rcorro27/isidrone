@@ -13,6 +13,7 @@ public class ActionStartup {
 		
 		HttpSession session = MSession.getSession(request);
 		
+
 		// Creer l'objet cart en session s'il n'existe pas
 		if (session.getAttribute("cart") == null){
 			Cart cart = new Cart();

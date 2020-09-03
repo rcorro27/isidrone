@@ -36,6 +36,39 @@
 				Laurent Beauregard <small>Webmestre</small>
 			</h3>
 		</div>
+            /*Ajout des nouveaux membres de l equipe  avec leur images  et noms*/
+            <div class="col-lg-6 col-sm-6 text-center">
+			<img class="img-circle img-responsive img-center"
+				src="images/about/yahia.jpg" alt="Photo de Yahia"
+				style="max-width: 250px; max-height: 250px; min-width: 250px;">
+			<h3>
+				Yahia Benhaili <small>Webmestre</small>
+			</h3>
+		</div>
+            <div class="col-lg-6 col-sm-6 text-center">
+			<img class="img-circle img-responsive img-center"
+				src="images/about/richard.jpg" alt="Photo de Richard"
+				style="max-width: 250px; max-height: 250px; min-width: 250px;">
+			<h3>
+				Richard Corro <small>Webmestre</small>
+			</h3>
+		</div>
+            <div class="col-lg-6 col-sm-6 text-center">
+			<img class="img-circle img-responsive img-center"
+				src="images/about/samuel.jpg" alt="Photo de Samuel"
+				style="max-width: 250px; max-height: 250px; min-width: 250px;">
+			<h3>
+				Samuel Perreault <small>Webmestre</small>
+			</h3>
+		</div>
+            <div class="col-lg-6 col-sm-6 text-center">
+			<img class="img-circle img-responsive img-center"
+				src="images/about/aissata.jpg" alt="Photo de Aissata"
+				style="max-width: 250px; max-height: 250px; min-width: 250px;">
+			<h3>
+				Ouattara Aissata mama <small>Webmestre</small>
+			</h3>
+		</div>
 	</div>
 	<hr>
 </div>

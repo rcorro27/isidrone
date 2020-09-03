@@ -30,10 +30,11 @@
    			 <div class="span4">
 	    		<h2>ISI Drone</h2>
 	    		<address>
-	    			255 boul. Crémazie Est<br>
-	    			bureau 100<br>
+	    			2100 boul. de Maisonneuve Est<br>
 	    			Montréal (Québec)<br>
-	    			H2M 1M2<br>
+	    			H2K 4S1<br>
+                                Courriel : info@isi-mtl.com <br>
+                                  
 	    			<abbr title="Téléphone">Tel:</abbr> (514) 842-2426
 	    		</address>
 	    	</div>
