@@ -1,0 +1,7 @@
+9/3/2020
+
+Modifications faite dans la base de donne !
+INFORMATIONS AJOUTER :
+	Colonne userRole ajouter avec une valeur 2 par default 
+	2 = utilisateur normal 
+	
