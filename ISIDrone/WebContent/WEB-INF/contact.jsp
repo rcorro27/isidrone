@@ -33,6 +33,8 @@
 	    			2100 boul. de Maisonneuve Est<br>
 	    			Montréal (Québec)<br>
 	    			H2K 4S1<br>
+                                Courriel : info@isi-mtl.com <br>
+                                  
 	    			<abbr title="Téléphone">Tel:</abbr> (514) 842-2426
 	    		</address>
 	    	</div>
