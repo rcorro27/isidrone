@@ -1,0 +1,23 @@
+9/3/2020
+
+Modifications faite dans la base de donne !
+INFORMATIONS AJOUTER :
+	Colonne userRole ajoutee avec une valeur 2 par default 
+	2 = utilisateur normal 
+	1= utilisateur administrateur
+
+INFORMATIONS LOGIN POUR ADMIN:
+EMAIL:  admin@email.com	
+MOT DE PASSE : @Admin123
+
+
+DEMARCHES A SUIVREEEE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+DANS LE SCRIPT D'ABORT :
+
+1) executer la commande alter table qui ajoute la colonne userRole
+2) executer la commande insert qui ajoute une adresse (NE PAS EXECUTER INSERT USER ENCORE ) 
+3) recuperer le id de la adresse creer dans la base de donner 
+4) ajouter le id dans le insert a la place de le dernier commentaire , pas besoin de '' ce un chiffre 
+5) executer le insert user 
+6) essayer de se logger avec le username admin@email.com password : @Admin123 
