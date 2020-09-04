@@ -40,7 +40,7 @@
 		            <div class="col-sm-4 col-lg-4 col-md-4">
 					    <div class="thumbnail">
 					    	<div style="max-width: 250px; max-height: 250px; text-aling: center; line-height: 250px;">
-					        	<img src="<%=Const.PATH_IMG_PRODUCT+item.getImage()%>" alt="">
+					        	<img src="<%=Const.ISIDRONE_HOME+item.getImage()%>" alt="">
 					        </div>
 					        <div class="caption">
 					            <h4><a href="item?item=<%=item.getId()%>"><%=item.getName()%></a></h4>

@@ -40,7 +40,7 @@ public class Item {
 	
 	// Special getter
 	public String getImgAndPath(){
-		return Const.PATH_IMG_PRODUCT + image;
+		return Const.ISIDRONE_HOME + image;
 	}
 	
 	//Getters
