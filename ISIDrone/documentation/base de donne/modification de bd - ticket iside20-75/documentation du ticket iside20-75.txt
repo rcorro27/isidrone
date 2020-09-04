@@ -1,0 +1,4 @@
+Modification de la table category : 
+- Ajout de la colonne isActive
+
+1) executer le script et verifier que le script fonctionne bien

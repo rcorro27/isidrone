@@ -26,7 +26,7 @@ public class MSignUp {
 				// Ajoute l'address a la BD
 				MSignUp.addAddress(user.getShipAddress());
 				
-				String query = "INSERT INTO user (`lastName`, `firstName`, `email`, `password`, `ship_address_id`) VALUES (?, ?, ?, ?, ?)";
+				String query = "INSERT INTO user (`lastName`, `firstName`, `email`, `password`, `ship_address_id`) VALUES ( ?, ?, ?, ?, ?)";
 				
 				PreparedStatement ps = MDB.getPS(query);
 			

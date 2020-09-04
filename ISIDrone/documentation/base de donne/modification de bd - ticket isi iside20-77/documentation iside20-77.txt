@@ -1,0 +1,11 @@
+ajout de colonne isShipped dans la table order 
+
+
+Demarches a suivre :
+
+Executer le sript et ce assurer que ca marche 
+
+Infos suplementaires
+
+le valeur par default et de 0 pour ne pas expedie 
+et 1 pour expedie 
