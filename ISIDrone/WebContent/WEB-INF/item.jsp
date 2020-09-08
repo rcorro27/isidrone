@@ -21,8 +21,8 @@
 if(item != null) {
 %>
 		<div class="row">
-			<a href="<%=Const.PATH_IMG_PRODUCT+item.getImage()%>" title="Agrandir">
-				<img style="float: left; margin: 20px; max-width: 320px; max-height: 150px;" src="<%=Const.PATH_IMG_PRODUCT+item.getImage()%>" alt="Image du produit <%=item.getName()%>" />
+			<a href="<%=Const.ISIDRONE_HOME+item.getImage()%>" title="Agrandir">
+				<img style="float: left; margin: 20px; max-width: 320px; max-height: 150px;" src="<%=Const.ISIDRONE_HOME+item.getImage()%>" alt="Image du produit <%=item.getName()%>" />
 			</a>
 			<h3><%=item.getName()%></h3>
 		</div>

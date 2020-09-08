@@ -19,8 +19,9 @@ public class Const {
 	// Public
 	
 	// Global
-	public static String PATH_IMG = "images/";
-	public static String PATH_IMG_PRODUCT = "images/products/";
+	public static String PATH_IMG = "images";
+        //Ajouter constante qui contient le nouveau path des image produits
+	public static String ISIDRONE_HOME = "images/products/";
 	
 	public static String PATH_HEAD_JSP = PATH_GLOBAL_INCLUDES + "head.jsp";			// <head>
 	public static String PATH_FOOTER_JSP = PATH_GLOBAL_INCLUDES + "footer.jsp";		// Footer
