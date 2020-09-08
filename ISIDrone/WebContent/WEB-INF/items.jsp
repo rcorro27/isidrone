@@ -10,6 +10,8 @@
 	ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
 %>
 
+<%String resultSearch = (String) request.getAttribute(Const.ATTIBUT_SEARCH); %>
+
 <jsp:include page="<%=Const.PATH_HEAD_JSP%>"/>
 <jsp:include page="<%=Const.PATH_MENU_JSP%>"/>
 	<!-- /.container -->
@@ -32,9 +34,11 @@
             	<div class="row">
 <%
 	//Format a deux decimal
-	DecimalFormat df = new DecimalFormat("####0.00");
+	DecimalFormat df = new DecimalFormat("####0.00"); %>
+        
+        <% out.println((resultSearch == null) ? "<p></p>" : "<p>Resultat de recherche en fonction du mot clé : " + resultSearch + "</p>"); %>
 	
-	if(items.size() > 0) {
+                    <%	if(items.size() > 0) {
 		for(Item item : items) {
 %>
 		            <div class="col-sm-4 col-lg-4 col-md-4">

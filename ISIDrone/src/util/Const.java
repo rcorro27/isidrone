@@ -48,4 +48,8 @@ public class Const {
 	public static String PATH_MENU_BANNER = PATH_INDEX_INCLUDES + "banner.jsp";		// Banner
 	
 	//public static String PATH_MENU_PRODUCT = PATH_IMG + "product.png";	// Place Holder Product
+        
+        
+        //Attributs
+        public static String ATTIBUT_SEARCH = "resultSearch";
 }

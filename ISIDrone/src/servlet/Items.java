@@ -40,6 +40,7 @@ public class Items extends HttpServlet {
                 
                 if (searchResult != null){
                     ActionItems.getSearchItems(searchResult, request, response);
+                    request.setAttribute(Const.ATTIBUT_SEARCH, searchResult);
                 }
 		request.getRequestDispatcher(Const.PATH_PAGE_ITEMS).forward(request, response);
 	}
