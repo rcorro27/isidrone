@@ -105,4 +105,34 @@ public class MItem {
 		}
 		return item;
 	}
+        
+        public static ArrayList<Item> getSearchItem(String search){
+            ArrayList<Item> items = new ArrayList<>();
+		try {
+			MDB.connect();
+			String query;
+			PreparedStatement ps;
+			ResultSet rs;
+                        
+                        query = "select * from product where upper(name) like upper(?) or upper(description) like upper(?) ;";
+                        ps = MDB.getPS(query);
+                        ps.setString(1, "%"+ search + "%");
+                        ps.setString(2, "%"+ search + "%");
+			
+                        rs = ps.executeQuery();
+			
+			while(rs.next())	
+				items.add(getItemFromResultSet(rs));
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			MDB.disconnect();
+		}
+		
+		return items;
+            
+        }
+        
 }

@@ -36,7 +36,6 @@
 				Laurent Beauregard <small>Webmestre</small>
 			</h3>
 		</div>
-            /*Ajout des nouveaux membres de l equipe  avec leur images  et noms*/
             <div class="col-lg-6 col-sm-6 text-center">
 			<img class="img-circle img-responsive img-center"
 				src="images/about/yahia.jpg" alt="Photo de Yahia"

@@ -13,6 +13,12 @@ public class ActionItems {
 
 	public static void getItemById(int id, HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("item", MItem.getItemById(id));
+                //request.setAttribute("items", MItem.getItemById(id));
 	}
+        
+        public static void getSearchItems(String search, HttpServletRequest request, HttpServletResponse response){
+            request.setAttribute("items", MItem.getSearchItem(search));
+        }
+    
 	
 }

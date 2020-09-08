@@ -21,7 +21,7 @@ if(user != null) {%>
 <li id="loginState">
 	<a href="#" id="user"><%=user.getFirstName()%></a>
 	<ul id="userAction" class="list-unstyled navbar navbar-default">
-            <%if(user.getId() == 1){%>
+            <%if(user.getUserRole() == 1){%>
                 <li><a href="<%="order-history"%>">Historique commande</a></li>
             <%}%>
 		<li>&nbsp;</li>
