@@ -23,7 +23,7 @@ $(function(){
   $('#autocomplete').autocomplete({
     lookup: drone,
     onSelect: function (suggestion) {
-    	window.location.replace("item?item=" + suggestion.data);
+    	window.location.replace("item?search=" + suggestion.data);
     }
   });
   

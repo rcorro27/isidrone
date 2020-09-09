@@ -34,7 +34,14 @@ public class Items extends HttpServlet {
 		//Si le paramètre category est présent
 		ActionCategory.getCategories(request, response);
 		ActionItems.getItems(request, response);
-		
+                
+                //
+                String searchResult = request.getParameter("search"); 
+                
+                if (searchResult != null){
+                    ActionItems.getSearchItems(searchResult, request, response);
+                    request.setAttribute(Const.ATTIBUT_SEARCH, searchResult);
+                }
 		request.getRequestDispatcher(Const.PATH_PAGE_ITEMS).forward(request, response);
 	}
 	

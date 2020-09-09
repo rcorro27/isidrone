@@ -80,7 +80,7 @@ public class EditProduct extends HttpServlet {
         itemAmodifier.setId(Integer.parseInt(request.getParameter("idProduct")));
         MItem.updateItem(itemAmodifier);
         ActionAdmin.getallitems(request);
-        request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response); 
 
     }
 

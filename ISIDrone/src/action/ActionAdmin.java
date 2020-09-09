@@ -7,12 +7,18 @@ package action;
 
 import javax.servlet.http.HttpServletRequest;
 import manager.MAdmin;
+
 /**
  *
  * @author rcorroch
  */
 public class ActionAdmin {
-     public static void getallitems(HttpServletRequest request) {
+
+    public static void getallitems(HttpServletRequest request) {
         request.setAttribute("listitems", MAdmin.getallitems());
+    }
+
+    public static boolean deleteactor(HttpServletRequest request, int id) {
+        return MAdmin.Deleteactor(id);
     }
 }
