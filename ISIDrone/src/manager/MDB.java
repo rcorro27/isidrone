@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MDB {
-	private static Connection connection = null;
+	static Connection connection = null;
 	
 	public static void connect() throws SQLException {
 		try {
@@ -18,6 +18,17 @@ public class MDB {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+        
+        public static Connection connection() throws SQLException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String mysqlURL="jdbc:mysql://127.0.0.1:3306/isidrone?serverTimezone=UTC";
+			 connection = DriverManager.getConnection(mysqlURL, "root", "abc123...");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+                return connection;
 	}
 	
 	public static ResultSet execQuery(String query) {

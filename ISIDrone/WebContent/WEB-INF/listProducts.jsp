@@ -55,7 +55,7 @@
                                 <td style="hover"><%=item.getName()%></td>
                                 <td class="text-center"><%=item.getCategory()%></td>
                                 <td class="text-center"><%=item.getStock()%></td>
-                                <td class="text-center"><a href="ACTION A AJOUTER <%=item.getId()%>">id deja ajouter pour l'action</a></td>
+                                <td class="text-center"><a href="editProduct?item=<%=item.getId()%>">Modifier</a></td>
                             </tr>
 
                             <%

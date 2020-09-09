@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Item;
+import java.sql.Connection;
 
 public class MItem {
     
@@ -64,6 +65,42 @@ public class MItem {
 		
 		return item;
 	}
+        
+        public static void updateItem(Item item) {
+		//Item item = null;
+                
+		try {
+			MDB.connect();
+                        Connection cnx=MDB.connection();
+			String query = "update product set category=? ,name =?,description=?, price=?,serialNumber=?,stockQty=? where id =?";
+			PreparedStatement ps = cnx.prepareStatement(query);
+			//PreparedStatement ps = MDB.getPS(query);
+			//ps.setInt(1, item.getCategory());
+                        ps.setInt(1, item.getCategory());
+                        ps.setString(2, item.getName());
+                        ps.setString(3, item.getDescription());
+                        ps.setDouble(4, item.getPrice());
+                        ps.setString(5, item.getSerial());
+                        ps.setInt(6, item.getStock());
+                        ps.setInt(7,item.getId());
+
+			ps.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			MDB.disconnect();
+		}
+		
+		//return item;
+	}
+        
+        
+ 
+        
+        
 
 	public static ArrayList<Item> getFeaturedItems() {
 		ArrayList<Item> items = new ArrayList<Item>();
