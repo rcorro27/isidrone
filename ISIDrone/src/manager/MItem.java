@@ -72,7 +72,7 @@ public class MItem {
 		try {
 			MDB.connect();
                         Connection cnx=MDB.connection();
-			String query = "update product set category=? ,name =?,description=?, price=?,serialNumber=?,stockQty=? where id =?";
+			String query = "update product set category=? ,name =?,description=?, price=?,serialNumber=?,stockQty=? ,isActive=? where id =?";
 			PreparedStatement ps = cnx.prepareStatement(query);
 			//PreparedStatement ps = MDB.getPS(query);
 			//ps.setInt(1, item.getCategory());
@@ -82,7 +82,8 @@ public class MItem {
                         ps.setDouble(4, item.getPrice());
                         ps.setString(5, item.getSerial());
                         ps.setInt(6, item.getStock());
-                        ps.setInt(7,item.getId());
+                        ps.setBoolean(7,item.isActive());
+                        ps.setInt(8, item.getId());
 
 			ps.executeUpdate();
 			
