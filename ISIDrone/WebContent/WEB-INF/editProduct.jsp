@@ -61,7 +61,17 @@
             <input type="text" class="form-control" id="qteProduct"  name="qteProduct" value="<%=item.getStock()%>">
         </div>
          <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+             <input type="checkbox" class="form-check-input" id="exampleCheck1"  <% 
+    if (item.isActive()) {
+        out.print("checked=\"checked\" value=\"1\"");
+       
+    } 
+              else {
+        out.print("value=\"0\"");
+                 }
+             
+             %>
+                 >
     <label class="form-check-label" for="exampleCheck1" name="active">Produit valide</label>
   </div>
         <button type="submit" class="btn btn-primary">Modifier</button>

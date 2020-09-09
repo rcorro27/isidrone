@@ -18,6 +18,8 @@
 
 <div class="container">
     <div class="row">
+       
+
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -27,7 +29,7 @@
                     <div class="table-responsive">
                         <table class="table table-condensed">
                             <%
-                                if (items.size() != 0) {
+                                if (items!=null && items.size() != 0) {
                             %>
                             <thead>
                                 <tr>
