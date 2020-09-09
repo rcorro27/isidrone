@@ -55,7 +55,7 @@
                                 <td style="hover"><%=item.getName()%></td>
                                 <td class="text-center"><%=item.getCategory()%></td>
                                 <td class="text-center"><%=item.getStock()%></td>
-                                <td class="text-center"><a href="editProduct?item=<%=item.getId()%>">Modifier</a></td>
+                                <td class="text-center"><a href="editProduct?item=<%=item.getId()%>" class="btn btn-info btn-sm">Modifier</a></td>
                                 <td class="text-center">
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=item.getId()%>">Supprimer</button>
                                     <div id="myModal_<%=item.getId()%>" class="modal fade" role="dialog">
