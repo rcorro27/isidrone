@@ -34,12 +34,15 @@ public class ListProducts extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String itemASupprimer = request.getParameter("itemASupprimer");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+            if (itemASupprimer != null) {
+                System.out.println("dans le if ");
+            }else{
             ActionAdmin.getallitems(request);
             request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);    
-            
+            }
             
           
         }
