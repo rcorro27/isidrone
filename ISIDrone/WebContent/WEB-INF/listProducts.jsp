@@ -55,7 +55,31 @@
                                 <td style="hover"><%=item.getName()%></td>
                                 <td class="text-center"><%=item.getCategory()%></td>
                                 <td class="text-center"><%=item.getStock()%></td>
-                                <td class="text-center"><a href="ACTION A AJOUTER <%=item.getId()%>">id deja ajouter pour l'action</a></td>
+                                <td class="text-center">
+                                    <a href='' class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><%=item.getId()%></a>
+                                    <div id="myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h1 class="modal-title">ATTENTION <%=item.getId()%></h1>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Est vous sure de vouloir supprimer cette produit ??? <%=item.getId()%> </p>
+                                                </div>
+                                                <div class="modal-footer">
+
+
+                                                    <a href="/ISIDrone/ListProducts" class="btn btn-success" data-dismiss="modal"><%=item.getId()%></a>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Non</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </td>
                             </tr>
 
                             <%

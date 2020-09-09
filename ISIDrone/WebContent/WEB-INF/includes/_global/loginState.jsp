@@ -19,14 +19,17 @@
 //Si le autoLogin a fonctionné
     if (user != null) {%>
 <li id="loginState">
-	<a href="#" id="user"><%=user.getFirstName()%></a>
-	<ul id="userAction" class="list-unstyled navbar navbar-default">
-            <%if(user.getUserRole() == 2){%>
-                <li><a href="<%="order-history"%>">Historique commande</a></li>
-            <%}%>
-		<li>&nbsp;</li>
-		<li><a href="login">Déconnexion</a></li>
-	</ul>
+    <a href="#" id="user"><%=user.getFirstName()%></a>
+    <ul id="userAction" class="list-unstyled navbar navbar-default">
+        <% if (user.getUserRole() == 1) { %>
+        <li><a href="ListProducts">Afficher tout les produits</a></li>
+            <% } else {%>
+        <li><a href="<%="order-history"%>">Historique commande</a></li>
+            <% } %>    
+        <li>&nbsp;</li>
+        <li><a href="login">Déconnexion</a></li>
+
+    </ul>
 
 </li>
 <% } else {
