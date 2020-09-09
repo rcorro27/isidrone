@@ -72,8 +72,8 @@
                                                 <div class="modal-footer">
 
 
-                                                    <a href="ListProducts?itemASupprimer=<%=item.getId()%>" class="btn btn-success" data-dismiss="modal">oui</a>
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Non</button>
+                                                    <a href="ListProducts?itemASupprimer=<%=item.getId()%>" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
+                                                    <a href="ListProducts" class="btn btn-danger" >non </a>
                                                 </div>
                                             </div>
 

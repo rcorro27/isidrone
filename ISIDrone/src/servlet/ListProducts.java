@@ -38,7 +38,8 @@ public class ListProducts extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             if (itemASupprimer != null) {
-                System.out.println("dans le if ");
+                
+                System.out.println(itemASupprimer);
             }else{
             ActionAdmin.getallitems(request);
             request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);    
