@@ -40,6 +40,7 @@ public class ListProducts extends HttpServlet {
             if (itemASupprimer != null) {
                 ActionAdmin.deleteactor(request, Integer.parseInt(itemASupprimer));
                 ActionAdmin.getallitems(request);
+                request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
             } else {
                 ActionAdmin.getallitems(request);
                 request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
