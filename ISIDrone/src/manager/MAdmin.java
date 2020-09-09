@@ -64,24 +64,24 @@ public class MAdmin {
     }
 
     public static boolean Deleteactor(int id) {
-        int deleteactortrue = 0;
+        int deleteItemTrue = 0;
         try {
             MDB.connect();
             String query;
             PreparedStatement preparedStatement;
            
 
-            query = "delete FROM FROM isidrone.product where id = ? ";
+            query = "delete FROM isidrone.product where id = ? ";
             preparedStatement = MDB.getPS(query);
             preparedStatement.setInt(1, id);
-            deleteactortrue = preparedStatement.executeUpdate();
+            deleteItemTrue = preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             MDB.disconnect();
         }
-        return deleteactortrue > 0;
+        return deleteItemTrue > 0;
     }
 
 }
