@@ -12,13 +12,14 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import entities.Item;
+import java.io.IOException;
 
 /**
  *
  * @author rcorroch
  */
 public class MAdmin {
-        public static ArrayList<Item> getallitems() {
+        public static ArrayList<Item> getallitems() throws IOException {
             ArrayList<Item> items = new ArrayList<Item>();
 		try {
 			MDB.connect();

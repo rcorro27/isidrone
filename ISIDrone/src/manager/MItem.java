@@ -6,11 +6,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Item;
+import java.io.IOException;
 
 public class MItem {
     
 	
-	public static ArrayList<Item> getItems(int category){
+	public static ArrayList<Item> getItems(int category) throws IOException{
 		ArrayList<Item> items = new ArrayList<Item>();
 		try {
 			MDB.connect();
@@ -41,7 +42,7 @@ public class MItem {
 		return items;
 	}
 
-	public static Item getItemById(int id) {
+	public static Item getItemById(int id) throws IOException {
 		Item item = null;
 		try {
 			MDB.connect();
@@ -65,7 +66,7 @@ public class MItem {
 		return item;
 	}
 
-	public static ArrayList<Item> getFeaturedItems() {
+	public static ArrayList<Item> getFeaturedItems() throws IOException {
 		ArrayList<Item> items = new ArrayList<Item>();
 		try {
 			MDB.connect();
@@ -107,7 +108,7 @@ public class MItem {
 		return item;
 	}
         
-        public static ArrayList<Item> getSearchItem(String search){
+        public static ArrayList<Item> getSearchItem(String search) throws IOException{
             ArrayList<Item> items = new ArrayList<>();
 		try {
 			MDB.connect();

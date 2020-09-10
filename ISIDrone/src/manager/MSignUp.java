@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import util.Hash;
 import entities.Address;
 import entities.User;
+import java.io.IOException;
 
 public class MSignUp {
 	
@@ -16,7 +17,7 @@ public class MSignUp {
 	 *  0 : L'adresse email est déjà présente dans la base de données
 	 *  1 : L'ajout c'est fait sans problème
 	 * */
-	public static int signUp(User user) {
+	public static int signUp(User user) throws IOException {
 		int code = isExist(user);
 		
 		if(code == 1) {
@@ -51,7 +52,7 @@ public class MSignUp {
 	 *  0 : L'adresse email est déjà présente dans la base de données
 	 *  1 : L'adresse email n'est pas présente dans la base de données
 	 * */
-	private static int isExist(User user) {
+	private static int isExist(User user) throws IOException {
 		int isExist = -1;
 		
 		try {
@@ -77,7 +78,7 @@ public class MSignUp {
 	/* 	0 : Erreur d'insertion
 	 *  >0 : Id (cle primaire)
 	 * */
-	private static int addAddress(Address address){
+	private static int addAddress(Address address) throws IOException{
 		
 		// TODO Faire une transaction
 		

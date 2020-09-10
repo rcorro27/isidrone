@@ -23,6 +23,13 @@
         </configuration>
       </plugin>
     </plugins>
+    
+    <resources>
+      <resource>
+         <directory>src/resources</directory>
+      </resource>
+    </resources>
+    
   </build>
   <dependencies>
 		<dependency>
@@ -36,9 +43,9 @@
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4</version>
-		</dependency>
-
+		</dependency>         
 	</dependencies>
+        
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>

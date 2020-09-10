@@ -1,5 +1,6 @@
 package action;
 
+import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -7,11 +8,11 @@ import manager.MCategory;
 
 public class ActionCategory {
 	
-	public static void getCategories(HttpServletRequest request, HttpServletResponse response) {
+	public static void getCategories(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.setAttribute("categories", MCategory.getCategories());
 	}
 	
-	public static int getSelectedCategory(HttpServletRequest request, HttpServletResponse response) {
+	public static int getSelectedCategory(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//Permet de recevoir la catégorie sélectionné par l'utilisateur
 		String paramCategory = request.getParameter("category");
 		

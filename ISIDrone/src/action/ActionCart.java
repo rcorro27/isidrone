@@ -12,6 +12,7 @@ import manager.MSession;
 import entities.Cart;
 import entities.Item;
 import entities.ItemCart;
+import java.io.IOException;
 
 public class ActionCart {
 
@@ -28,7 +29,7 @@ public class ActionCart {
 	}
 
 	public static void addItem(HttpServletRequest request,
-			HttpServletResponse response, String strId, String strQty) {
+			HttpServletResponse response, String strId, String strQty) throws IOException {
 
 		if ((Misc.isNumeric(strQty) || strQty.equals("")) && Misc.isNumeric(strId)) {
 			
