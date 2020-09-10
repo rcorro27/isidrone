@@ -6,14 +6,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Category;
+<<<<<<< HEAD
 import entities.User;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import util.Hash;
 
 public class MCategory {
-	public static ArrayList<Category> getCategories() throws IOException{
     
     public static int addCategorie(Category category) {
 		int code = isExistName(category.getName());
@@ -45,6 +44,13 @@ public class MCategory {
     
     
 
+	public static ArrayList<Category> getCategories(){
+=======
+import java.io.IOException;
+
+public class MCategory {
+	public static ArrayList<Category> getCategories() throws IOException{
+>>>>>>> 6d91609ef8737cee97dd56df2bb27cfaddc21d3b
 		ArrayList<Category> categories = new ArrayList<Category>();
                 
 		try {

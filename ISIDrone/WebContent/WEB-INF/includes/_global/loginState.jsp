@@ -24,7 +24,8 @@
     <a href="#" id="user"><%=user.getFirstName()%></a>
     <ul id="userAction" class="list-unstyled navbar navbar-default">
         <% if (user.getUserRole() == 1) { %>
-        <li><a href="ListProducts">Afficher tout les produits</a></li>
+        <li><a href="ListProducts?afficherTout=1">Afficher tout les produits</a></li>
+        <li><a href="ListProducts?ajouterItem=1">Ajouter un produit</a></li>
         <li><a href="listCategories">Categories</a></li>
          <li><a href="newCategory">Ajouter categorie</a></li>
 <% } else {%>

@@ -5,6 +5,7 @@
  */
 package action;
 
+import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import manager.MAdmin;
 
@@ -13,12 +14,11 @@ import manager.MAdmin;
  * @author rcorroch
  */
 public class ActionAdmin {
-
-    public static void getallitems(HttpServletRequest request) {
+    public static void getallitems(HttpServletRequest request) throws IOException{
         request.setAttribute("listitems", MAdmin.getallitems());
     }
 
-    public static boolean deleteactor(HttpServletRequest request, int id) {
-        return MAdmin.Deleteactor(id);
+    public static boolean deleteitem(HttpServletRequest request, int id) throws IOException {
+        return MAdmin.Deletitem(id);
     }
 }

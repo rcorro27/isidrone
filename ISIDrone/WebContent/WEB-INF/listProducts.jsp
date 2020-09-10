@@ -18,7 +18,7 @@
 
 <div class="container">
     <div class="row">
-       
+
 
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -29,7 +29,7 @@
                     <div class="table-responsive">
                         <table class="table table-condensed">
                             <%
-                                if (items!=null && items.size() != 0) {
+                                if (items != null && items.size() != 0) {
                             %>
                             <thead>
                                 <tr>
@@ -37,7 +37,7 @@
                                     <td class="text-center"><strong>Nom</strong></td>
                                     <td class="text-center"><strong>Catégorie</strong></td>
                                     <td class="text-center"><strong>Quantité en stock</strong></td>
-                                      <td class="text-center"><strong>Active</strong></td>
+                                    <td class="text-center"><strong>Active</strong></td>
                                     <td class="text-center"><strong>Action</strong></td>
                                 </tr>
                             </thead>
