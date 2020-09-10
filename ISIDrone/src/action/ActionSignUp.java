@@ -14,10 +14,11 @@ import util.ResultValidation;
 import util.Validation;
 import entities.Address;
 import entities.User;
+import java.io.IOException;
 
 public class ActionSignUp {
 	
-	public static boolean signUp(HttpServletRequest request, HttpServletResponse response) {
+	public static boolean signUp(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String[] s_formParamsNeeded = {"lastName", "firstName", "email", "confirmEmail", "password", "confirmPassword",
 				 "addr_no", "addr_street", "addr_zip", "addr_city", "addr_state", "addr_country"},
 				s_formParamsOptional = {"addr_appt"};

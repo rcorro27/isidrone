@@ -9,7 +9,15 @@ public class Category {
 	
 	public Category() {}
 	
-        public Category(int id, String name, String description, boolean isActive, int order) {
+        public Category(int id, String name, String description, boolean isActive) {
+            this.id = id;
+            this.name = name;
+            this.description = description;
+            this.isActive = isActive;
+        }
+        
+        
+        public Category(int id, String name, String description, int order, boolean isActive) {
             this.id = id;
             this.name = name;
             this.description = description;

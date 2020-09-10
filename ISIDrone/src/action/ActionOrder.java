@@ -5,13 +5,14 @@ import java.util.List;
 import entities.Cart;
 import entities.Order;
 import entities.User;
+import java.io.IOException;
 import manager.MOrder;
 import manager.MSendMail;
 
 public class ActionOrder {
 	
 	// Methode executé lorse qu'une commande est completé
-	public static int process(User user, Cart cart){
+	public static int process(User user, Cart cart) throws IOException{
 		
 		// Ajoute la commande a la base de donnée
 		int orderId = MOrder.add(user, cart);
@@ -33,7 +34,7 @@ public class ActionOrder {
 		
 	}
 	
-	public static List<Order> getHistoryByUserID(int userId){
+	public static List<Order> getHistoryByUserID(int userId) throws IOException{
 		List<Order> orderList = MOrder.getAllOrdersByUserId(userId);
 		
 		return orderList;

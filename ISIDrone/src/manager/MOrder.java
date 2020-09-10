@@ -11,9 +11,10 @@ import entities.Item;
 import entities.ItemCart;
 import entities.Order;
 import entities.User;
+import java.io.IOException;
 
 public class MOrder {
-	public static int add(User user, Cart cart) {
+	public static int add(User user, Cart cart) throws IOException {
 		
 		int orderId = 0;
 		
@@ -65,7 +66,7 @@ public class MOrder {
 		return orderId;
 		
 	}
-	public static List<Order> getAllOrdersByUserId(int userId){
+	public static List<Order> getAllOrdersByUserId(int userId) throws IOException{
 		
 		List<Order> orderList= new ArrayList<Order>();
 		

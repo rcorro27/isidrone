@@ -14,10 +14,11 @@ import util.ResultValidation;
 import util.Validation;
 import entities.SingleEntry; 
 import entities.User;
+import java.io.IOException;
 
 public class ActionLogin {
 	
-	public static void loginAttempt(HttpServletRequest request, HttpServletResponse response) {
+	public static void loginAttempt(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//Si le login n'est pas valide, alors on ajoute un attribut pour notifier le servlet
 		//On créer un hashMap pour le contenir les données du formulaire
 		HashMap<String, String> hm_login = new HashMap<String, String>();
@@ -79,7 +80,7 @@ public class ActionLogin {
 		request.setAttribute("hm_errorMsg", hm_errorMsg);
 	}
 	
-	public static User getUserFromAutoLogin(HttpServletRequest request) {
+	public static User getUserFromAutoLogin(HttpServletRequest request) throws IOException {
 		User user = null;
 		if(MCookies.exist("id", request) && MCookies.exist("token", request)) {
 			

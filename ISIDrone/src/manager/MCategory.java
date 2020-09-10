@@ -6,21 +6,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Category;
+<<<<<<< HEAD
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import manager.MDB;
+=======
+import java.io.IOException;
+>>>>>>> 77bd907f0c090d6ca0d5da2c5a2123d97651fc9f
 
 public class MCategory {
-
-	public static ArrayList<Category> getCategories(){
+	public static ArrayList<Category> getCategories() throws IOException{
 		ArrayList<Category> categories = new ArrayList<Category>();
+                
 
 		try {
 			MDB.connect();
 			String query = "SELECT * FROM category";
 			ResultSet rs = MDB.execQuery(query);
 			while(rs.next()) {
-				categories.add(new Category(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getInt(5)));	
+				categories.add(new Category(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getBoolean(5)));	
 			}
 			
 		} catch (SQLException e) {
@@ -33,7 +37,7 @@ public class MCategory {
 		return categories;
 	}
 	
-	public static int isExist(int category) {
+	public static int isExist(int category) throws IOException {
 		int isExist = -1;		
 		try {
 			MDB.connect();

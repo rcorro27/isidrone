@@ -11,10 +11,11 @@ import util.Hash;
 import entities.Address;
 import entities.SingleEntry;
 import entities.User;
+import java.io.IOException;
 
 public class MLogin {
 	
-	public static User login(String id, String password) {
+	public static User login(String id, String password) throws IOException {
 		User user = null;
 		Address address = null;
 		PreparedStatement ps = null;
@@ -49,7 +50,7 @@ public class MLogin {
 		return user;
 	}
 	
-	public static SingleEntry<Integer, String> setAutoLogin(User user) {
+	public static SingleEntry<Integer, String> setAutoLogin(User user) throws IOException {
 		SingleEntry<Integer, String> se_idToken = null;
 		if(user != null) {
 			try {
@@ -81,7 +82,7 @@ public class MLogin {
 		return se_idToken;
 	}
 	
-	public static User getUserFromAutoLogin(SingleEntry<Integer, String> se_idToken) {
+	public static User getUserFromAutoLogin(SingleEntry<Integer, String> se_idToken) throws IOException {
 		User user = null;
 		Address address = null;
 		PreparedStatement ps = null;

@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import entities.Item;
+import java.io.IOException;
 
 /**
  *
  * @author rcorroch
  */
 public class MAdmin {
-
-    public static ArrayList<Item> getallitems() {
+    public static ArrayList<Item> getallitems() throws IOException{
         ArrayList<Item> items = new ArrayList<Item>();
         try {
             MDB.connect();
@@ -63,7 +63,7 @@ public class MAdmin {
         return item;
     }
 
-    public static boolean Deleteactor(int id) {
+    public static boolean Deleteactor(int id) throws IOException {
         int deleteItemTrue = 0;
         try {
             MDB.connect();
