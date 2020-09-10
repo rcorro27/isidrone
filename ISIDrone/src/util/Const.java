@@ -34,6 +34,7 @@ public class Const {
 	public static String PATH_PAGE_ABOUT = PATH_PRIVATE + "about.jsp";
 	public static String PATH_PAGE_CONTACT = PATH_PRIVATE + "contact.jsp";
 	public static String PATH_PAGE_ITEM = PATH_PRIVATE + "item.jsp";
+        public static String PATH_PAGE_PRODUCT_EDIT = PATH_PRIVATE + "editProduct.jsp";
 	public static String PATH_PAGE_LOGIN = PATH_PRIVATE + "login.jsp";
 	public static String PATH_PAGE_SIGNUP = PATH_PRIVATE + "signUp.jsp";
 	public static String PATH_PAGE_SIGNUP_COMPLETE = PATH_PRIVATE + "signUpComplete.jsp";

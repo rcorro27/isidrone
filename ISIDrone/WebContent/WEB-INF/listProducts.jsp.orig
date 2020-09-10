@@ -18,8 +18,6 @@
 
 <div class="container">
     <div class="row">
-       
-
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -29,7 +27,7 @@
                     <div class="table-responsive">
                         <table class="table table-condensed">
                             <%
-                                if (items!=null && items.size() != 0) {
+                                if (items.size() != 0) {
                             %>
                             <thead>
                                 <tr>
@@ -37,7 +35,6 @@
                                     <td class="text-center"><strong>Nom</strong></td>
                                     <td class="text-center"><strong>Catégorie</strong></td>
                                     <td class="text-center"><strong>Quantité en stock</strong></td>
-                                      <td class="text-center"><strong>Active</strong></td>
                                     <td class="text-center"><strong>Action</strong></td>
                                 </tr>
                             </thead>
@@ -58,8 +55,9 @@
                                 <td style="hover"><%=item.getName()%></td>
                                 <td class="text-center"><%=item.getCategory()%></td>
                                 <td class="text-center"><%=item.getStock()%></td>
-                                <td class="text-center"><%=item.isActive()%></td>
-                                <td class="text-center"><a href="editProduct?item=<%=item.getId()%>" class="btn btn-info btn-sm">Modifier</a></td>
+<<<<<<< HEAD
+                                <td class="text-center"><a href="editProduct?item=<%=item.getId()%>">Modifier</a></td>
+=======
                                 <td class="text-center">
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=item.getId()%>">Supprimer</button>
                                     <div id="myModal_<%=item.getId()%>" class="modal fade" role="dialog">
@@ -85,6 +83,7 @@
                                     </div>
 
                                 </td>
+>>>>>>> 69553e37aad97ba0a5b2c226a9883c8485333876
                             </tr>
 
                             <%

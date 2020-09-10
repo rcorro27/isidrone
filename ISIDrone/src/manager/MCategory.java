@@ -9,7 +9,6 @@ import entities.Category;
 import java.io.IOException;
 
 public class MCategory {
-
 	public static ArrayList<Category> getCategories() throws IOException{
 		ArrayList<Category> categories = new ArrayList<Category>();
                 

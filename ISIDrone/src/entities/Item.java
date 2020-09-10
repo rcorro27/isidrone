@@ -9,8 +9,18 @@ public class Item {
 		category,
 		stock,
 		rating,
+                activer,
 		nbReview;
-	
+
+    public int getActiver() {
+        return activer;
+    }
+
+    public void setActiver(int activer) {
+        this.activer = activer;
+    }
+
+   
 	private String name,
 		description,
 		serial,

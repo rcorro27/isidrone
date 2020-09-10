@@ -5,6 +5,8 @@
  */
 package servlet;
 
+import action.ActionAdmin;
+import action.ActionItems;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,41 +14,29 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import manager.MItem;
-import action.ActionAdmin;
+import util.Const;
 
 /**
  *
- * @author rcorroch
+ * @author ybenhail
  */
-@WebServlet(name = "ListProducts", urlPatterns = {"/ListProducts"})
-public class ListProducts extends HttpServlet {
+@WebServlet(name = "EditProduct", urlPatterns = {"/editProduct"})
+public class EditProduct extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String itemASupprimer = request.getParameter("itemASupprimer");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            if (itemASupprimer != null) {
-                ActionAdmin.deleteactor(request, Integer.parseInt(itemASupprimer));
-                ActionAdmin.getallitems(request);
-                request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
-            } else {
-                ActionAdmin.getallitems(request);
-                request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
-            }
-
+        int item;
+        try {
+            item = Integer.parseInt(request.getParameter("item"));
+        } catch (NumberFormatException e) {
+            item = -1;
         }
+
+        ActionItems.getItemById(item, request, response);
+        request.getRequestDispatcher(Const.PATH_PAGE_PRODUCT_EDIT).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -75,7 +65,24 @@ public class ListProducts extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        //
+        HttpServletRequest r = request;
+        String nom = request.getParameter("productName");
+        entities.Item itemAmodifier = new entities.Item();
+        itemAmodifier.setCategory(Integer.parseInt(request.getParameter("productCat")));
+        itemAmodifier.setName(request.getParameter("productName"));
+        itemAmodifier.setDescription(request.getParameter("descProduct"));
+        itemAmodifier.setPrice(Double.parseDouble(request.getParameter("priceProduct")));
+        itemAmodifier.setSerial(request.getParameter("serialProduct"));
+        itemAmodifier.setStock(Integer.parseInt(request.getParameter("qteProduct")));
+       // if(request.getParameter("active")=="1"){}
+        itemAmodifier.setActiver(Integer.parseInt(request.getParameter("active")));
+        itemAmodifier.setId(Integer.parseInt(request.getParameter("idProduct")));
+        MItem.updateItem(itemAmodifier);
+        ActionAdmin.getallitems(request);
+        request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response); 
+
     }
 
     /**
