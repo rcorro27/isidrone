@@ -22,7 +22,7 @@
         Position du produit
         Produit actif ou non
         --%>
-        <form>
+        <form method="get" action="ListCategories">
             <label for="catName">Nom de la catégorie</label>
             <input type="text" id="catName" name="catName">
             <label for="descCat">Description de la catégorie:</label>
@@ -31,7 +31,7 @@
             <input type="text" id="posCat" name="posCat">
             <label for="activeOrNotCat">Catégorie active ou non:</label>
             <input type="text" id="activeOrNotCat" name="activeOrNotCat">
+            <input type='submit' value='submitCatChange'>
         </form>
-        
     </body>
 </html>

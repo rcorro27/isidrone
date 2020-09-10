@@ -1,4 +1,4 @@
-package manager;
+dpackage manager;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Category;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import manager.MDB;
 
 public class MCategory {
 
@@ -51,4 +54,16 @@ public class MCategory {
 		
 		return isExist;
 	}
+        public static void modifyCategory(int category){
+            try {
+                MDB.connect();
+                String modifyQuery = "UPDATE category SET nom des colonnes WHERE id=category";
+            } catch (SQLException ex) {
+                Logger.getLogger(MCategory.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            finally{
+                MDB.disconnect();
+            }
+            
+        }
 }
