@@ -1,17 +1,22 @@
-package manager;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Category;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import manager.MDB;
+
 import java.io.IOException;
+
 
 public class MCategory {
 	public static ArrayList<Category> getCategories() throws IOException{
 		ArrayList<Category> categories = new ArrayList<Category>();
                 
+
 		try {
 			MDB.connect();
 			String query = "SELECT * FROM category";
@@ -51,4 +56,15 @@ public class MCategory {
 		
 		return isExist;
 	}
+        public static void modifyCategory(int category) throws IOException{
+            try {
+                MDB.connect();
+                String modifyQuery = "UPDATE $1 SET $2,$3,$4,$5 WHERE id=$6";
+            } catch (SQLException ex) {
+                Logger.getLogger(MCategory.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            finally{
+                MDB.disconnect();
+            }
+        }
 }
