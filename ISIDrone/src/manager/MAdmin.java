@@ -85,7 +85,7 @@ public class MAdmin {
         return deleteItemTrue > 0;
     }
 
-    public static boolean updateItem(Item item) throws IOException {
+    public static boolean addItem(Item item) throws IOException {
         int itemAdd = 0;
 
         try {
