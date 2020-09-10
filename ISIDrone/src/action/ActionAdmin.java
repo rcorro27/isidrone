@@ -18,7 +18,7 @@ public class ActionAdmin {
         request.setAttribute("listitems", MAdmin.getallitems());
     }
 
-    public static boolean deleteactor(HttpServletRequest request, int id) throws IOException {
-        return MAdmin.Deleteactor(id);
+    public static boolean deleteitem(HttpServletRequest request, int id) throws IOException {
+        return MAdmin.Deletitem(id);
     }
 }

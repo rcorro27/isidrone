@@ -13,13 +13,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import entities.Item;
 import java.io.IOException;
+import java.sql.Connection;
 
 /**
  *
  * @author rcorroch
  */
 public class MAdmin {
-    public static ArrayList<Item> getallitems() throws IOException{
+
+    public static ArrayList<Item> getallitems() throws IOException {
         ArrayList<Item> items = new ArrayList<Item>();
         try {
             MDB.connect();
@@ -63,13 +65,12 @@ public class MAdmin {
         return item;
     }
 
-    public static boolean Deleteactor(int id) throws IOException {
+    public static boolean Deletitem(int id) throws IOException {
         int deleteItemTrue = 0;
         try {
             MDB.connect();
             String query;
             PreparedStatement preparedStatement;
-           
 
             query = "delete FROM isidrone.product where id = ? ";
             preparedStatement = MDB.getPS(query);
@@ -82,6 +83,36 @@ public class MAdmin {
             MDB.disconnect();
         }
         return deleteItemTrue > 0;
+    }
+
+    public static boolean updateItem(Item item) throws IOException {
+        int itemAdd = 0;
+
+        try {
+            MDB.connect();
+            Connection cnx = MDB.connection();
+            String query = "INSERT INTO `isidrone`.`product` (`category`, `name`, `description`, `price`, `serialNumber`, `imgName`, `stockQty`, `isActive`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?');";
+            PreparedStatement ps = cnx.prepareStatement(query);
+            //PreparedStatement ps = MDB.getPS(query);
+            //ps.setInt(1, item.getCategory());
+            ps.setInt(1, item.getCategory());
+            ps.setString(2, item.getName());
+            ps.setString(3, item.getDescription());
+            ps.setDouble(4, item.getPrice());
+            ps.setString(5, item.getSerial());
+            ps.setString(6, item.getImage());
+            ps.setInt(7, item.getStock());
+            ps.setInt(8, item.getActiver());
+
+            itemAdd = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        return itemAdd > 0;
     }
 
 }
