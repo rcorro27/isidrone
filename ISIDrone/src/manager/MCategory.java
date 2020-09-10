@@ -91,7 +91,7 @@ public class MCategory {
 		int isExist = -1;		
 		try {
 			MDB.connect();
-			String query = "SELECT 'exist' FROM category WHERE name = ?";
+			String query = "SELECT 'exist' FROM category WHERE name like ?";
 			PreparedStatement ps = MDB.getPS(query);
 			
 			ps.setString(1, category);

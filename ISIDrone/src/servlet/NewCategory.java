@@ -41,7 +41,7 @@ public class NewCategory extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet NewCategory</title>");            
+            out.println("<title>Servlet NewCategory</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet NewCategory at " + request.getContextPath() + "</h1>");
@@ -62,8 +62,8 @@ public class NewCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      //  processRequest(request, response);
-      		request.getRequestDispatcher(Const.PATH_ADD_CATEGORY).forward(request, response);
+        //  processRequest(request, response);
+        request.getRequestDispatcher(Const.PATH_ADD_CATEGORY).forward(request, response);
 
     }
 
@@ -78,26 +78,31 @@ public class NewCategory extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // processRequest(request, response);
-       String test =request.getParameter("active");
+        // processRequest(request, response);
+        String test = request.getParameter("active");
         Category category = new Category();
         category.setName(request.getParameter("nameCat"));
         category.setDescription(request.getParameter("descCat"));
         category.setOrder(Integer.parseInt(request.getParameter("position")));
-        
-        if(request.getParameter("active")==null){
-        category.setActiver(0);
-        }else {
-                category.setActiver(1);
+
+        if (request.getParameter("active") == null) {
+            category.setActiver(0);
+        } else {
+            category.setActiver(1);
 
         }
         int rep = MCategory.addCategorie(category);
-        
-        
+        if (rep == 0) {
+            request.setAttribute("error", "accountExisting");
+            request.getRequestDispatcher(Const.PATH_PAGE_NEW_CATEGORIE).forward(request, response);
+
+        }else 
+        {
         ActionAdmin.getallitems(request);
-        request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response); 
+        request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
+        }
         
-        
+
     }
 
     /**
