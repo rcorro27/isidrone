@@ -15,7 +15,30 @@ import util.Hash;
 public class MCategory {
 	public static ArrayList<Category> getCategories() throws IOException{
     
-    public static int addCategorie(Category category) {
+    
+    
+    
+
+		ArrayList<Category> categories = new ArrayList<Category>();
+                
+		try {
+			MDB.connect();
+			String query = "SELECT * FROM category";
+			ResultSet rs = MDB.execQuery(query);
+			while(rs.next()) {
+				categories.add(new Category(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getBoolean(5)));	
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			MDB.disconnect();	
+		}
+		
+		return categories;
+	}
+        public static int addCategorie(Category category) throws IOException {
 		int code = isExistName(category.getName());
 		
 		if(code == 1) {
@@ -42,28 +65,6 @@ public class MCategory {
 		}
 		return code;
 	}
-    
-    
-
-		ArrayList<Category> categories = new ArrayList<Category>();
-                
-		try {
-			MDB.connect();
-			String query = "SELECT * FROM category";
-			ResultSet rs = MDB.execQuery(query);
-			while(rs.next()) {
-				categories.add(new Category(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getBoolean(5)));	
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			MDB.disconnect();	
-		}
-		
-		return categories;
-	}
 	
 	public static int isExist(int category) throws IOException {
 		int isExist = -1;		
@@ -86,7 +87,7 @@ public class MCategory {
 		
 		return isExist;
 	}
-        public static int isExistName(String category) {
+        public static int isExistName(String category) throws IOException {
 		int isExist = -1;		
 		try {
 			MDB.connect();
