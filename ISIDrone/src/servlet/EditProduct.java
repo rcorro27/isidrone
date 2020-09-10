@@ -76,7 +76,8 @@ public class EditProduct extends HttpServlet {
         itemAmodifier.setPrice(Double.parseDouble(request.getParameter("priceProduct")));
         itemAmodifier.setSerial(request.getParameter("serialProduct"));
         itemAmodifier.setStock(Integer.parseInt(request.getParameter("qteProduct")));
-        itemAmodifier.setActive(Boolean.parseBoolean(request.getParameter("active")));
+       // if(request.getParameter("active")=="1"){}
+        itemAmodifier.setActiver(Integer.parseInt(request.getParameter("active")));
         itemAmodifier.setId(Integer.parseInt(request.getParameter("idProduct")));
         MItem.updateItem(itemAmodifier);
         ActionAdmin.getallitems(request);

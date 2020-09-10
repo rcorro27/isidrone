@@ -82,7 +82,7 @@ public class MItem {
                         ps.setDouble(4, item.getPrice());
                         ps.setString(5, item.getSerial());
                         ps.setInt(6, item.getStock());
-                        ps.setBoolean(7,item.isActive());
+                        ps.setInt(7,item.getActiver());
                         ps.setInt(8, item.getId());
 
 			ps.executeUpdate();

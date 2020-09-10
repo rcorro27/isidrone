@@ -37,6 +37,7 @@
                                     <td class="text-center"><strong>Nom</strong></td>
                                     <td class="text-center"><strong>Catégorie</strong></td>
                                     <td class="text-center"><strong>Quantité en stock</strong></td>
+                                      <td class="text-center"><strong>Active</strong></td>
                                     <td class="text-center"><strong>Action</strong></td>
                                 </tr>
                             </thead>
@@ -57,6 +58,7 @@
                                 <td style="hover"><%=item.getName()%></td>
                                 <td class="text-center"><%=item.getCategory()%></td>
                                 <td class="text-center"><%=item.getStock()%></td>
+                                <td class="text-center"><%=item.isActive()%></td>
                                 <td class="text-center"><a href="editProduct?item=<%=item.getId()%>" class="btn btn-info btn-sm">Modifier</a></td>
                                 <td class="text-center">
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=item.getId()%>">Supprimer</button>
