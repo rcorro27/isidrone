@@ -33,6 +33,7 @@ public class ListProducts extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -50,7 +51,7 @@ public class ListProducts extends HttpServlet {
         String productSerial = request.getParameter("serialProduct");
         String productQte = request.getParameter("qteProduct");
         String productActive = request.getParameter("active");
-        entities.Item itemAmodifier = new entities.Item();
+        entities.Item itemAjouter = new entities.Item();
 
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -66,18 +67,18 @@ public class ListProducts extends HttpServlet {
             }
             if (newProduct != null) {
 
-                itemAmodifier.setCategory(Integer.parseInt(request.getParameter("productCat")));
-                itemAmodifier.setName(request.getParameter("productName"));
-                itemAmodifier.setDescription(request.getParameter("descProduct"));
-                itemAmodifier.setPrice(Double.parseDouble(request.getParameter("priceProduct")));
-                itemAmodifier.setSerial(request.getParameter("serialProduct"));
-                itemAmodifier.setImage(Const.PATH_IMG+"/drone_default.png");
-                itemAmodifier.setStock(Integer.parseInt(request.getParameter("qteProduct")));
+                itemAjouter.setCategory(Integer.parseInt(request.getParameter("productCat")));
+                itemAjouter.setName(request.getParameter("productName"));
+                itemAjouter.setDescription(request.getParameter("descProduct"));
+                itemAjouter.setPrice(Double.parseDouble(request.getParameter("priceProduct")));
+                itemAjouter.setSerial(request.getParameter("serialProduct"));
+                itemAjouter.setImage("drone_default.png");
+                itemAjouter.setStock(Integer.parseInt(request.getParameter("qteProduct")));
                 // if(request.getParameter("active")=="1"){}
-                itemAmodifier.setActiver(Integer.parseInt(request.getParameter("active")));
-                MItem.updateItem(itemAmodifier);
+                itemAjouter.setActiver(Integer.parseInt(request.getParameter("active")));
+                ActionAdmin.additem(request, itemAjouter);
                 ActionAdmin.getallitems(request);
-                request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
+                request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
 
                 ActionAdmin.getallitems(request);
                 request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
