@@ -6,7 +6,7 @@
 package servlet;
 
 import action.ActionAdmin;
-import action.ActionItems;
+import entities.Category;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,29 +14,40 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import manager.MItem;
+import manager.MCategory;
 import util.Const;
 
 /**
  *
  * @author ybenhail
  */
-@WebServlet(name = "EditProduct", urlPatterns = {"/editProduct"})
-public class EditProduct extends HttpServlet {
+@WebServlet(name = "newCategory", urlPatterns = {"/newCategory"})
+public class NewCategory extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int item;
-        try {
-            item = Integer.parseInt(request.getParameter("item"));
-        } catch (NumberFormatException e) {
-            item = -1;
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet NewCategory</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet NewCategory at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-
-        ActionItems.getItemById(item, request, response);
-        request.getRequestDispatcher(Const.PATH_PAGE_PRODUCT_EDIT).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,7 +62,9 @@ public class EditProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+      //  processRequest(request, response);
+      		request.getRequestDispatcher(Const.PATH_ADD_CATEGORY).forward(request, response);
+
     }
 
     /**
@@ -65,24 +78,26 @@ public class EditProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        //
-        //HttpServletRequest r = request;
-        //String nom = request.getParameter("productName");
-        entities.Item itemAmodifier = new entities.Item();
-        itemAmodifier.setCategory(Integer.parseInt(request.getParameter("productCat")));
-        itemAmodifier.setName(request.getParameter("productName"));
-        itemAmodifier.setDescription(request.getParameter("descProduct"));
-        itemAmodifier.setPrice(Double.parseDouble(request.getParameter("priceProduct")));
-        itemAmodifier.setSerial(request.getParameter("serialProduct"));
-        itemAmodifier.setStock(Integer.parseInt(request.getParameter("qteProduct")));
-       // if(request.getParameter("active")=="1"){}
-        itemAmodifier.setActiver(Integer.parseInt(request.getParameter("active")));
-        itemAmodifier.setId(Integer.parseInt(request.getParameter("idProduct")));
-        MItem.updateItem(itemAmodifier);
+       // processRequest(request, response);
+       String test =request.getParameter("active");
+        Category category = new Category();
+        category.setName(request.getParameter("nameCat"));
+        category.setDescription(request.getParameter("descCat"));
+        category.setOrder(Integer.parseInt(request.getParameter("position")));
+        
+        if(request.getParameter("active")==null){
+        category.setActiver(0);
+        }else {
+                category.setActiver(1);
+
+        }
+        int rep = MCategory.addCategorie(category);
+        
+        
         ActionAdmin.getallitems(request);
         request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response); 
-
+        
+        
     }
 
     /**

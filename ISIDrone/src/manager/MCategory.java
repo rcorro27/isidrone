@@ -6,8 +6,42 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entities.Category;
+import entities.User;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import util.Hash;
 
 public class MCategory {
+    
+    public static int addCategorie(Category category) {
+		int code = isExistName(category.getName());
+		
+		if(code == 1) {
+			try {
+				MDB.connect();
+				
+				String query = "INSERT INTO category (`name`, `description`, `order`, `isActive`) VALUES ( ?, ?, ?, ?)";
+				
+				PreparedStatement ps = MDB.getPS(query);
+			
+				ps.setString(1, category.getName());
+				ps.setString(2, category.getDescription());
+				ps.setInt(3, category.getOrder());
+				ps.setBoolean(4, category.isIsActive());
+				//ps.setInt(5, user.getShipAddress().getId());
+				
+				ps.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				MDB.disconnect();	
+			}
+		}
+		return code;
+	}
+    
+    
 
 	public static ArrayList<Category> getCategories(){
 		ArrayList<Category> categories = new ArrayList<Category>();
@@ -38,6 +72,27 @@ public class MCategory {
 			PreparedStatement ps = MDB.getPS(query);
 			
 			ps.setInt(1, category);
+			ResultSet rs = ps.executeQuery();
+			
+			isExist = (rs.first() ? 0 : 1);
+		} catch (SQLException e) {
+			isExist = -1;
+			e.printStackTrace();
+		}
+		finally {
+			MDB.disconnect();	
+		}
+		
+		return isExist;
+	}
+        public static int isExistName(String category) {
+		int isExist = -1;		
+		try {
+			MDB.connect();
+			String query = "SELECT 'exist' FROM category WHERE name = ?";
+			PreparedStatement ps = MDB.getPS(query);
+			
+			ps.setString(1, category);
 			ResultSet rs = ps.executeQuery();
 			
 			isExist = (rs.first() ? 0 : 1);

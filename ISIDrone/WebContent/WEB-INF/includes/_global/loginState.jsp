@@ -3,6 +3,7 @@
 <%@page import="action.ActionLogin"%>
 <%@page import="manager.MCookies"%>
 <%@ page import="entities.User"%>
+<%@ page import="util.Const"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%
@@ -25,7 +26,8 @@
         <% if (user.getUserRole() == 1) { %>
         <li><a href="ListProducts">Afficher tout les produits</a></li>
         <li><a href="listCategories">Categories</a></li>
-            <% } else {%>
+         <li><a href="newCategory">Ajouter categorie</a></li>
+<% } else {%>
         <li><a href="<%="order-history"%>">Historique commande</a></li>
             <% } %>    
         <li>&nbsp;</li>
