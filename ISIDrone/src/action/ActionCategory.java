@@ -42,6 +42,7 @@ public class ActionCategory {
 		
 		return categorySelected;
 	}
+
         public static boolean addCategory(HttpServletRequest request, HttpServletResponse response){
             String[] s_formParamsNeeded = {"name", "description", "order", "isActive"};
 				
@@ -207,4 +208,10 @@ public class ActionCategory {
 		
 		return errorMsg;
 	}
+        
+        //
+        public static boolean deleteCategory(HttpServletRequest request, int id) throws IOException{
+            return MCategory.deleteCategorie(id);
+        }
+
 }

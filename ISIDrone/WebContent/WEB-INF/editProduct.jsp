@@ -8,7 +8,7 @@
 <%@page import="entities.Item"%>
 <%@page import="java.util.ArrayList, entities.Category"%>
 <%@page import="entities.Cart"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="util.Const"%>
 <%
     //Format a deux decimal
