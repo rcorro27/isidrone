@@ -25,11 +25,11 @@
     <form action="ListProducts?newProduct=1" method="post">
         <div class="form-group">
             <label for="productName">Nom</label>
-            <input type="text" class="form-control" id="productName" name="productName" maxlength = "100" title="Le nom doit etre de 100 caracteres maximun" required >
+            <input type="text" class="form-control" id="productName" name="productName" maxlength = "100"s required >
         </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Categorie</label>
-            <select class="form-control"  name="productCat" title="Vous devez choisir une categorie" required>
+            <select class="form-control"  name="productCat"  required>
                 <option value="1" >Tous</option>
                 <option value="2" >Avec Camera</option>
                 <option value="3" >Recreatif</option>
