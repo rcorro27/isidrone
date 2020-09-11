@@ -12,14 +12,9 @@ public class Item {
                 activer,
 		nbReview;
 
-    public int getActiver() {
-        return activer;
-    }
+    
 
-    public void setActiver(int activer) {
-        this.activer = activer;
-    }
-
+    
    
 	private String name,
 		description,
@@ -47,6 +42,21 @@ public class Item {
 		this.price = price;
 		this.isActive = isActive;
 	}
+
+    public Item(int id, int category, int stock, int rating, int activer, int nbReview, String name, String description, String serial, String image, String brand, double price) {
+        this.id = id;
+        this.category = category;
+        this.stock = stock;
+        this.rating = rating;
+        this.activer = activer;
+        this.nbReview = nbReview;
+        this.name = name;
+        this.description = description;
+        this.serial = serial;
+        this.image = image;
+        this.brand = brand;
+        this.price = price;
+    }
 	
 	// Special getter
 	public String getImgAndPath(){
@@ -101,6 +111,9 @@ public class Item {
 	public boolean isActive() {
 		return isActive;
 	}
+        public int getActiver() {
+        return activer;
+    }
 
 	public void setId(int id) {
 		this.id = id;
@@ -150,4 +163,8 @@ public class Item {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
+        public void setActiver(int activer) {
+        this.activer = activer;
+    }
+
 }

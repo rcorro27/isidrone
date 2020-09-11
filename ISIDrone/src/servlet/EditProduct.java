@@ -68,7 +68,7 @@ public class EditProduct extends HttpServlet {
         //processRequest(request, response);
         //
         //HttpServletRequest r = request;
-        //String nom = request.getParameter("productName");
+        String active = request.getParameter("active");
         entities.Item itemAmodifier = new entities.Item();
         itemAmodifier.setCategory(Integer.parseInt(request.getParameter("productCat")));
         itemAmodifier.setName(request.getParameter("productName"));
@@ -77,7 +77,7 @@ public class EditProduct extends HttpServlet {
         itemAmodifier.setSerial(request.getParameter("serialProduct"));
         itemAmodifier.setStock(Integer.parseInt(request.getParameter("qteProduct")));
        // if(request.getParameter("active")=="1"){}
-        itemAmodifier.setActiver(Integer.parseInt(request.getParameter("active")));
+        itemAmodifier.setActiver(Integer.parseInt(active));
         itemAmodifier.setId(Integer.parseInt(request.getParameter("idProduct")));
         MItem.updateItem(itemAmodifier);
         ActionAdmin.getallitems(request);

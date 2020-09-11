@@ -66,11 +66,11 @@
     if (item.isActive()) {%>
         <input type='hidden' value="0" name="active">
 
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" value="2" checked name="active">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" value="2" checked name="test">
 
        
    <% } 
-    else if(!item.isActive()) {%>
+    else  {%>
     <input type='hidden' value="1" name="active">
     <input type="checkbox" class="form-check-input" id="exampleCheck1" value="1" name="active"> 
 
