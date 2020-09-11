@@ -50,7 +50,7 @@
         </div>
         <div class="form-group">
             <label for="priceProduct">Prix</label>
-            <input type="text" class="form-control" id="priceProduct" name="priceProduct" value="<%=item.getPrice()%>" maxlength = "7"  required>
+            <input type="number" class="form-control" id="priceProduct" name="priceProduct" value="<%=item.getPrice()%>" min="1" max="1000000"  step=0.01  required>
         </div>
         <div class="form-group">
             <label for="serialProduct">Numero de série</label>

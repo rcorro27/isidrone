@@ -55,7 +55,7 @@
         </div>
         <div class="form-group ">
             <input type="checkbox" class="form-check-input" id="exampleCheck1"  name="active" value="1" >
-            <label class="form-check-label" for="exampleCheck1" >Produit active</label>
+            <label class="form-check-label" for="exampleCheck1" >Actif</label>
         </div>
         <div class="form-group ">
             <button type="submit" class="btn btn-primary">ajouter</button>
