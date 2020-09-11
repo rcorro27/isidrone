@@ -101,7 +101,7 @@ public class MAdmin {
             ps.setString(5, item.getSerial());
             ps.setString(6, item.getImage());
             ps.setInt(7, item.getStock());
-            ps.setInt(8, item.getActiver());
+            ps.setBoolean(8, item.getIsActive());
 
             itemAdd = ps.executeUpdate();
 
