@@ -27,7 +27,7 @@ String error = (String)request.getAttribute("error");
 	 if(error.equals("accountExisting")) {
 %>
 		<div class="alert alert-info">
-			Un compte existe déjà pour cette adresse email.
+			Il existe  deja une categorie  avec ce nom
 		</div>
 <%
 	 }
