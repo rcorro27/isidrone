@@ -1,10 +1,19 @@
 package entities;
 
 public class Category {
-	private int id;
+	private int id,activer;
+
+    public int getActiver() {
+        return activer;
+    }
+
+    public void setActiver(int activer) {
+        this.activer = activer;
+    }
 	private String name,
 		description;
         private boolean isActive;
+         
         private int order;
 	
 	public Category() {}

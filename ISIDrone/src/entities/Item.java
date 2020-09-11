@@ -3,14 +3,14 @@ package entities;
 import util.Const;
 
 public class Item {
-	
-	// Attribut
-	private int id,
-		category,
-		stock,
-		rating,
-                activer,
-		nbReview;
+
+    // Attribut
+    private int id,
+            category,
+            stock,
+            rating,
+            activer,
+            nbReview;
 
     public int getActiver() {
         return activer;
@@ -20,134 +20,148 @@ public class Item {
         this.activer = activer;
     }
 
-   
-	private String name,
-		description,
-		serial,
-		image,
-		brand;
-	
-	private double price;
-	private boolean isActive;
-	
-	// Constructeur
-	public Item() {
-	}
-	
-	public Item(int id, int category, String name,
-			String description ,double price, String serial, String image,
-			int stock, boolean isActive) {
-		this.id = id;
-		this.category = category;
-		this.stock = stock;
-		this.name = name;
-		this.description = description;
-		this.serial = serial;
-		this.image = image;
-		this.price = price;
-		this.isActive = isActive;
-	}
-	
-	// Special getter
-	public String getImgAndPath(){
-		return Const.ISIDRONE_HOME + image;
-	}
-	
-	//Getters
-	public int getId() {
-		return id;
-	}
+    private String name,
+            description,
+            serial,
+            image,
+            brand;
 
-	public int getCategory() {
-		return category;
-	}
+    private double price;
+    private boolean isActive;
 
-	public int getStock() {
-		return stock;
-	}
+    // Constructeur
+    public Item() {
+    }
 
-	public int getRating() {
-		return rating;
-	}
+    public Item(int id, int category, String name,
+            String description, double price, String serial, String image,
+            int stock, boolean isActive) {
+        this.id = id;
+        this.category = category;
+        this.stock = stock;
+        this.name = name;
+        this.description = description;
+        this.serial = serial;
+        this.image = image;
+        this.price = price;
+        this.isActive = isActive;
+    }
 
-	public int getNbReview() {
-		return nbReview;
-	}
+    public Item(int category, int stock, String name, String description, String serial, String image, double price, int activer) {
+        this.category = category;
+        this.stock = stock;
+        this.name = name;
+        this.description = description;
+        this.serial = serial;
+        this.image = image;
+        this.price = price;
+        this.activer = activer;
+    }
 
-	public String getName() {
-		return name;
-	}
+    // Special getter
+    public String getImgAndPath() {
+        return Const.ISIDRONE_HOME + image;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    //Getters
+    public int getId() {
+        return id;
+    }
 
-	public String getSerial() {
-		return serial;
-	}
+    public int getCategory() {
+        return category;
+    }
 
-	public String getImage() {
-		return image;
-	}
+    public int getStock() {
+        return stock;
+    }
 
-	public String getBrand() {
-		return brand;
-	}
+    public int getRating() {
+        return rating;
+    }
 
-	public double getPrice() {
-		return price;
-	}
+    public int getNbReview() {
+        return nbReview;
+    }
 
-	public boolean isActive() {
-		return isActive;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	//Setters
-	public void setCategory(int category) {
-		this.category = category;
-	}
+    public String getSerial() {
+        return serial;
+    }
 
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
+    public String getImage() {
+        return image;
+    }
 
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
+    public String getBrand() {
+        return brand;
+    }
 
-	public void setNbReview(int nbReview) {
-		this.nbReview = nbReview;
-	}
+    public double getPrice() {
+        return price;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public boolean isActive() {
+        return isActive;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public boolean getIsActive() {
+        return isActive;
+    }
 
-	public void setSerial(String serial) {
-		this.serial = serial;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setImage(String image) {
-		this.image = image;
-	}
+    //Setters
+    public void setCategory(int category) {
+        this.category = category;
+    }
 
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
+    public void setNbReview(int nbReview) {
+        this.nbReview = nbReview;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setSerial(String serial) {
+        this.serial = serial;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 }
