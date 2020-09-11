@@ -64,7 +64,7 @@ public class ListProducts extends HttpServlet {
 
             }
             if (newProduct != null) {
-                itemAjouter = new entities.Item(Integer.parseInt(productCat), Integer.parseInt(productQte), productName, productDesc, productSerial,"drone_default.png"  , Double.parseDouble(productPrice), Boolean.parseBoolean(productActive));
+                itemAjouter = new entities.Item(Integer.parseInt(productCat), Integer.parseInt(productQte), productName, productDesc, productSerial,"drone_default.png"  , Double.parseDouble(productPrice), Integer.parseInt(productActive));
                 ActionAdmin.additem(request, itemAjouter);
                 ActionAdmin.getallitems(request);
                 request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
