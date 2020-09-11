@@ -47,7 +47,7 @@ public class Item {
         this.isActive = isActive;
     }
 
-    public Item(int category, int stock, String name, String description, String serial, String image, double price, boolean isActive) {
+    public Item(int category, int stock, String name, String description, String serial, String image, double price, int activer) {
         this.category = category;
         this.stock = stock;
         this.name = name;
@@ -55,7 +55,7 @@ public class Item {
         this.serial = serial;
         this.image = image;
         this.price = price;
-        this.isActive = isActive;
+        this.activer = activer;
     }
 
     // Special getter
