@@ -1,9 +1,12 @@
 package action;
 
-import java.io.IOException;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Pattern;
+=======
+import java.io.IOException;
+>>>>>>> 6d91609ef8737cee97dd56df2bb27cfaddc21d3b
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -42,7 +45,6 @@ public class ActionCategory {
 		
 		return categorySelected;
 	}
-
         public static boolean addCategory(HttpServletRequest request, HttpServletResponse response){
             String[] s_formParamsNeeded = {"name", "description", "order", "isActive"};
 				
@@ -208,10 +210,4 @@ public class ActionCategory {
 		
 		return errorMsg;
 	}
-        
-        //
-        public static boolean deleteCategory(HttpServletRequest request, int id) throws IOException{
-            return MCategory.deleteCategorie(id);
-        }
-
 }

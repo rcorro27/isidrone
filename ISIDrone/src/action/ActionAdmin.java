@@ -8,6 +8,7 @@ package action;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import manager.MAdmin;
+import entities.*;
 
 /**
  *
@@ -18,7 +19,10 @@ public class ActionAdmin {
         request.setAttribute("listitems", MAdmin.getallitems());
     }
 
-    public static boolean deleteactor(HttpServletRequest request, int id) throws IOException {
-        return MAdmin.Deleteactor(id);
+    public static boolean deleteitem(HttpServletRequest request, int id) throws IOException {
+        return MAdmin.Deletitem(id);
+    }
+        public static boolean additem(HttpServletRequest request, Item item) throws IOException {
+        return MAdmin.addItem(item);
     }
 }

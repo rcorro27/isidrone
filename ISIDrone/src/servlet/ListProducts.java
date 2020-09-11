@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import manager.MItem;
 import action.ActionAdmin;
+import util.Const;
+import entities.*;
 
 /**
  *
@@ -35,16 +37,45 @@ public class ListProducts extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String itemASupprimer = request.getParameter("itemASupprimer");
+        String itemAAjouter = request.getParameter("ajouterItem");
+        String newProduct = request.getParameter("newProduct");
+        String afficherTout = request.getParameter("afficherTout");
+        /**
+         * REQUEST DANS LE POST POUR AJOUTER UN PRODUIT****
+         */
+        String productName = request.getParameter("productName");
+        String productCat = request.getParameter("productCat");
+        String productDesc = request.getParameter("descProduct");
+        String productPrice = request.getParameter("priceProduct");
+        String productSerial = request.getParameter("serialProduct");
+        String productQte = request.getParameter("qteProduct");
+        String productActive = request.getParameter("active");
+        entities.Item itemAjouter = null;
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             if (itemASupprimer != null) {
-                ActionAdmin.deleteactor(request, Integer.parseInt(itemASupprimer));
+                ActionAdmin.deleteitem(request, Integer.parseInt(itemASupprimer));
                 ActionAdmin.getallitems(request);
-                request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
-            } else {
-                ActionAdmin.getallitems(request);
-                request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
+                request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
             }
+            if (itemAAjouter != null) {
+
+                request.getRequestDispatcher(Const.PATH_PAGE_NEW_PRODUCT).forward(request, response);
+
+            }
+            if (newProduct != null) {
+                itemAjouter = new entities.Item(Integer.parseInt(productCat), Integer.parseInt(productQte), productName, productDesc, productSerial,"drone_default.png"  , Double.parseDouble(productPrice), Boolean.parseBoolean(productActive));
+                ActionAdmin.additem(request, itemAjouter);
+                ActionAdmin.getallitems(request);
+                request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
+            }
+            if (afficherTout != null) {
+                ActionAdmin.getallitems(request);
+                request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
+            }/* else {
+                ActionAdmin.getallitems(request);
+                request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
+            }*/
 
         }
     }

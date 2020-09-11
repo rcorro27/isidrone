@@ -68,8 +68,8 @@ public class EditProduct extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         //
-        HttpServletRequest r = request;
-        String nom = request.getParameter("productName");
+        //HttpServletRequest r = request;
+        //String nom = request.getParameter("productName");
         entities.Item itemAmodifier = new entities.Item();
         itemAmodifier.setCategory(Integer.parseInt(request.getParameter("productCat")));
         itemAmodifier.setName(request.getParameter("productName"));
