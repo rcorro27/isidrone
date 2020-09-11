@@ -87,14 +87,13 @@ public class MAdmin {
 
     public static boolean addItem(Item item) throws IOException {
         int itemAdd = 0;
-
         try {
             MDB.connect();
-            Connection cnx = MDB.connection();
-            String query = "INSERT INTO `isidrone`.`product` (`category`, `name`, `description`, `price`, `serialNumber`, `imgName`, `stockQty`, `isActive`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?');";
-            PreparedStatement ps = cnx.prepareStatement(query);
-            //PreparedStatement ps = MDB.getPS(query);
-            //ps.setInt(1, item.getCategory());
+            String query;
+            PreparedStatement ps;
+            query = "INSERT INTO `isidrone`.`product` (`category`, `name`, `description`, `price`, `serialNumber`, `imgName`, `stockQty`, `isActive`) VALUES (? , ? , ? , ? , ? , ? , ? , ? );";
+            ps = MDB.getPS(query);
+
             ps.setInt(1, item.getCategory());
             ps.setString(2, item.getName());
             ps.setString(3, item.getDescription());

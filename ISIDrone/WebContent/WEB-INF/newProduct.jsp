@@ -30,7 +30,7 @@
         <div class="form-group">
             <label for="exampleFormControlInput1">Categorie</label>
             <select class="form-control"  name="productCat">
-                <option value="1" selected="" >Tous</option>
+                <option value="1" >Tous</option>
                 <option value="2" >Avec Camera</option>
                 <option value="3" >Recreatif</option>
                 <option value="4" >Performance</option>
@@ -54,7 +54,7 @@
             <input type="text" class="form-control" id="qteProduct"  name="qteProduct">
         </div>
         <div class="form-group ">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="1" checked name="active">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="1" name="active">
             <label class="form-check-label" for="exampleCheck1" >Produit valide</label>
         </div>
         <div class="form-group ">

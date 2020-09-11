@@ -33,7 +33,6 @@ public class ListProducts extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -51,8 +50,7 @@ public class ListProducts extends HttpServlet {
         String productSerial = request.getParameter("serialProduct");
         String productQte = request.getParameter("qteProduct");
         String productActive = request.getParameter("active");
-        entities.Item itemAjouter = new entities.Item();
-
+        entities.Item itemAjouter = null;
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             if (itemASupprimer != null) {
@@ -66,20 +64,8 @@ public class ListProducts extends HttpServlet {
 
             }
             if (newProduct != null) {
-
-                itemAjouter.setCategory(Integer.parseInt(request.getParameter("productCat")));
-                itemAjouter.setName(request.getParameter("productName"));
-                itemAjouter.setDescription(request.getParameter("descProduct"));
-                itemAjouter.setPrice(Double.parseDouble(request.getParameter("priceProduct")));
-                itemAjouter.setSerial(request.getParameter("serialProduct"));
-                itemAjouter.setImage("drone_default.png");
-                itemAjouter.setStock(Integer.parseInt(request.getParameter("qteProduct")));
-                // if(request.getParameter("active")=="1"){}
-                itemAjouter.setActiver(Integer.parseInt(request.getParameter("active")));
+                itemAjouter = new entities.Item(Integer.parseInt(productCat), Integer.parseInt(productQte), productName, productDesc, productSerial,"drone_default.png"  , Double.parseDouble(productPrice), true);
                 ActionAdmin.additem(request, itemAjouter);
-                ActionAdmin.getallitems(request);
-                request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
-
                 ActionAdmin.getallitems(request);
                 request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
             }

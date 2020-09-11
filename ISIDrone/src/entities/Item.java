@@ -47,6 +47,18 @@ public class Item {
 		this.price = price;
 		this.isActive = isActive;
 	}
+
+    public Item(int category, int stock, String name, String description, String serial, String image, double price, boolean isActive) {
+        this.category = category;
+        this.stock = stock;
+        this.name = name;
+        this.description = description;
+        this.serial = serial;
+        this.image = image;
+        this.price = price;
+        this.isActive = isActive;
+    }
+        
 	
 	// Special getter
 	public String getImgAndPath(){
