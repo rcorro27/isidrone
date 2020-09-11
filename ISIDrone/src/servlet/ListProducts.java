@@ -72,7 +72,7 @@ public class ListProducts extends HttpServlet {
             if (afficherTout != null) {
                 ActionAdmin.getallitems(request);
                 request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
-            }/* else {
+            } /*else {
                 ActionAdmin.getallitems(request);
                 request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
             }*/
