@@ -36,4 +36,8 @@ public class ActionCategory {
 		
 		return categorySelected;
 	}
+        
+        public static boolean deleteCategory(HttpServletRequest request, int id) throws IOException{
+        return MCategory.deleteCategorie(id);
+    }
 }

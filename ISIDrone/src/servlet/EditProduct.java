@@ -28,6 +28,7 @@ public class EditProduct extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         int item;
         try {
             item = Integer.parseInt(request.getParameter("item"));
