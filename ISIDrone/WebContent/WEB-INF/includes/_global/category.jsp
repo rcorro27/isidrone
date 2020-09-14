@@ -9,7 +9,7 @@
 	if( categories!=null && categories.size() > 0) {
 		for(Category category : categories) {
 %>
-						<a href="items?category=<%=category.getId()%>" class="list-group-item<%=(category.getId() == categorySelected ? " active" : "")%>"><%=category.getName()%></a>
+						<a href="items?category=<%=category.getId()%>&effacer=false" class="list-group-item<%=(category.getId() == categorySelected ? " active" : "")%>"><%=category.getName()%></a>
 <%
 		}
 	}

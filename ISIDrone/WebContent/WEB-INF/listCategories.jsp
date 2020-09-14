@@ -3,6 +3,7 @@
     Created on : Sep 9, 2020, 8:32:10 AM
     Author     : aouattar
 --%>
+<%@page import="entities.Item"%>
 <%@page import="util.Const"%>
 <%@page import="entities.Category"%>
 <%@page import="java.util.ArrayList"%>
@@ -10,7 +11,10 @@
 <jsp:include page="<%=Const.PATH_HEAD_JSP%>"/>
 <jsp:include page="<%=Const.PATH_MENU_JSP%>"/>
 
-<% ArrayList <Category> categories = (ArrayList<Category>) request.getAttribute("categories");%>
+<% ArrayList<Category> categories = (ArrayList<Category>) request.getAttribute("categories");
+    
+
+%>
 <!DOCTYPE html>
 <div class="container">
     <div class="row">
@@ -22,8 +26,7 @@
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table table-condensed">
-                            <%
-                                if (categories.size() > 0) {
+                            <%                                if (categories.size() > 0) {
                             %>
                             <thead>
                                 <tr>
@@ -58,7 +61,7 @@
                                                 <div class="modal-footer">
 
 
-                                                    <a href="items?category=<%=cat.getId()%>&effacer=1" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
+                                                    <a href="items?category=<%=cat.getId()%>&effacer=true" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
                                                     <a href="listCategories" class="btn btn-danger" >non </a>
                                                 </div>
                                             </div>
@@ -66,12 +69,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                
+
                             </tr>
 
                             <%}%>
+
                         </table>
                     </div>
+
                 </div>
             </div>
         </div>
