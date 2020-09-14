@@ -25,12 +25,12 @@
     <form action="ListProducts?newProduct=1" method="post">
         <div class="form-group">
             <label for="productName">Nom</label>
-            <input type="text" class="form-control" id="productName" name="productName" >
+            <input type="text" class="form-control" id="productName" name="productName" maxlength = "100"s required >
         </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Categorie</label>
-            <select class="form-control"  name="productCat">
-                <option value="1" selected="" >Tous</option>
+            <select class="form-control"  name="productCat"  required>
+                <option value="1" >Tous</option>
                 <option value="2" >Avec Camera</option>
                 <option value="3" >Recreatif</option>
                 <option value="4" >Performance</option>
@@ -39,33 +39,29 @@
         </div>
         <div class="form-group">
             <label for="descProduct">Description </label>
-            <textarea class="form-control" id="descProduct" rows="3" name="descProduct"></textarea>
+            <textarea class="form-control" id="descProduct" rows="3" name="descProduct"  maxlength = "200"  required></textarea>
         </div>
         <div class="form-group">
             <label for="priceProduct">Prix</label>
-            <input type="text" class="form-control" id="priceProduct" name="priceProduct">
+            <input type="number" class="form-control" id="priceProduct" name="priceProduct" min="1" max="1000000" step=0.01 required >
         </div>
         <div class="form-group">
             <label for="serialProduct">Numero de série</label>
-            <input type="text" class="form-control" id="serialProduct" name="serialProduct">
+            <input type="text" class="form-control" id="serialProduct" name="serialProduct" maxlength = "30" required>
         </div>
         <div class="form-group">
             <label for="qteProduct">Quantité en stock</label>
-            <input type="text" class="form-control" id="qteProduct"  name="qteProduct">
+            <input type="number" class="form-control" id="qteProduct" min="1" max="1000000"  name="qteProduct"  required>
         </div>
         <div class="form-group ">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" value="1" checked name="active">
-            <label class="form-check-label" for="exampleCheck1" >Produit valide</label>
+            <input type="checkbox" class="form-check-input" id="exampleCheck1"  name="active" value="1" >
+            <label class="form-check-label" for="exampleCheck1" >Actif</label>
         </div>
         <div class="form-group ">
             <button type="submit" class="btn btn-primary">ajouter</button>
-        </div>
-        <div class="form-group">
             <button type="button" class="btn btn-dark">Annuler</button>
         </div>
     </form>
-    <a href="items?category=1" class="btn btn-default">Retour à l'inventaire</a>
-
 </div>
 
 <jsp:include page="<%=Const.PATH_FOOTER_JSP%>"/>

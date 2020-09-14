@@ -79,7 +79,6 @@ public class MCategory {
         } finally {
             MDB.disconnect();
         }
-
         return isExist;
     }
 
@@ -102,5 +101,26 @@ public class MCategory {
         }
 
         return isExist;
+    }
+    
+    public static boolean deleteCategorie(int id) throws IOException{
+        int result = 0;
+        
+        try {
+            MDB.connect();
+            String query;
+            PreparedStatement preparedStatement;
+           
+            query = "delete from category where id = ?";
+            preparedStatement = MDB.getPS(query);
+            preparedStatement.setInt(1, id);
+            result = preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            MDB.disconnect();
+        }
+        return result> 0;   
     }
 }

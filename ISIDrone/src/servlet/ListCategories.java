@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import action.ActionAdmin;
 import action.ActionCategory;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,6 +24,12 @@ public class ListCategories extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String idCategoryToDelete = request.getParameter("idCategoryToDelete");
+        
+        if (idCategoryToDelete != null){
+            ActionCategory.deleteCategory(request, Integer.parseInt(idCategoryToDelete));
+        }
         
         ActionCategory.getCategories(request, response);
         request.getRequestDispatcher("/WEB-INF/listCategories.jsp").forward(request, response);

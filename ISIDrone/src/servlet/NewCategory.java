@@ -5,7 +5,7 @@
  */
 package servlet;
 
-import action.ActionAdmin;
+import action.*;
 import entities.Category;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -98,8 +98,8 @@ public class NewCategory extends HttpServlet {
 
         }else 
         {
-        ActionAdmin.getallitems(request);
-        request.getRequestDispatcher("/WEB-INF/listProducts.jsp").forward(request, response);
+        ActionCategory.getCategories(request, response);
+        request.getRequestDispatcher(Const.PATH_PAGE_LIST_CATEGORIES).forward(request, response);
         }
         
 
