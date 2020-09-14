@@ -1,4 +1,4 @@
-$(function(){
+/*$(function(){
   var drone = [
     { value: 'DJI Phantom 2 Vision', data: '0' },
     { value: 'Tera Mini Quadrocoptère', data: '1' },
@@ -23,9 +23,9 @@ $(function(){
   $('#autocomplete').autocomplete({
     lookup: drone,
     onSelect: function (suggestion) {
-    	window.location.replace("item?search=" + suggestion.data);
+    	//window.location.replace("item?search=" + suggestion.data);
     }
   });
   
 
-});
+});*/
