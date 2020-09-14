@@ -12,14 +12,16 @@ import util.Const;
 import action.ActionCart;
 import action.ActionCategory;
 import action.ActionItems;
+import java.util.ArrayList;
 
 /**
  * Servlet implementation class Products
  */
-@WebServlet(name = "products", urlPatterns = { "/items" })
+@WebServlet(name = "products", urlPatterns = {"/items"})
 public class Items extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,30 +29,49 @@ public class Items extends HttpServlet {
         super();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Si le paramètre category est présent
-		ActionCategory.getCategories(request, response);
-		ActionItems.getItems(request, response);
-                
-                //
-                String searchResult = request.getParameter("search"); 
-                
-                if (searchResult != null){
-                    ActionItems.getSearchItems(searchResult, request, response);
-                    request.setAttribute(Const.ATTIBUT_SEARCH, searchResult);
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+     * response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Si le paramètre category est présent
+        ActionCategory.getCategories(request, response);
+        ActionItems.getItems(request, response);
+        String idCategoryToDelete = request.getParameter("category");
+        String effacer = request.getParameter("effacer");
+        String searchResult = request.getParameter("search");
+        ArrayList<entities.Item> itemsCategoryAverifier = null;
+
+        if (searchResult != null) {
+            ActionItems.getSearchItems(searchResult, request, response);
+            request.setAttribute(Const.ATTIBUT_SEARCH, searchResult);
+        }
+        request.getRequestDispatcher(Const.PATH_PAGE_ITEMS).forward(request, response);
+        
+        if (Integer.parseInt(effacer) == 1) {
+            if (idCategoryToDelete != null) {
+                itemsCategoryAverifier = ActionItems.getItems(request, response);
+                if (itemsCategoryAverifier.isEmpty()) {
+                    ActionCategory.deleteCategory(request, Integer.parseInt(idCategoryToDelete));
+                    ActionCategory.getCategories(request, response);
+                    request.getRequestDispatcher(Const.PATH_PAGE_LIST_CATEGORIES).forward(request, response);
+                } else if (!itemsCategoryAverifier.isEmpty()) {
+                    ActionCategory.getCategories(request, response);
+                    request.getRequestDispatcher(Const.PATH_PAGE_LIST_CATEGORIES).forward(request, response);
+
                 }
-		request.getRequestDispatcher(Const.PATH_PAGE_ITEMS).forward(request, response);
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String strId = request.getParameter("itemId");
-		String strQty = request.getParameter("qty");
-	 
-		ActionCart.addItem(request, response, strId, strQty);
-		
-		doGet(request, response);
-	}
+
+            }
+        }
+
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String strId = request.getParameter("itemId");
+        String strQty = request.getParameter("qty");
+
+        ActionCart.addItem(request, response, strId, strQty);
+
+        doGet(request, response);
+    }
 }

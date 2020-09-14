@@ -25,12 +25,9 @@ public class ListCategories extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String idCategoryToDelete = request.getParameter("idCategoryToDelete");
+       // String idCategoryToDelete = request.getParameter("category");
         
-        if (idCategoryToDelete != null){
-            ActionCategory.deleteCategory(request, Integer.parseInt(idCategoryToDelete));
-        }
-        
+
         ActionCategory.getCategories(request, response);
         request.getRequestDispatcher("/WEB-INF/listCategories.jsp").forward(request, response);
     }

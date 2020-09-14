@@ -58,7 +58,7 @@
                                                 <div class="modal-footer">
 
 
-                                                    <a href="listCategories?idCategoryToDelete=<%=cat.getId()%>" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
+                                                    <a href="items?category=<%=cat.getId()%>&effacer=1" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
                                                     <a href="listCategories" class="btn btn-danger" >non </a>
                                                 </div>
                                             </div>
