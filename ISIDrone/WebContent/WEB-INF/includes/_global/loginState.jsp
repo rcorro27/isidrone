@@ -6,6 +6,23 @@
 <%@ page import="util.Const"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<style>
+    #userAction {
+      display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    width: 200px;
+    margin-top: 10px;
+    margin-left: -122px;
+
+}
+    
+#menuA{
+        margin:0 0 10px 0;   
+
+}
+</style>
 <%
 //S'il n'y a pas d'utilisateur déjà de connecté
     User user = (User) session.getAttribute("user");
@@ -24,14 +41,14 @@
     <a href="#" id="user"><%=user.getFirstName()%></a>
     <ul id="userAction" class="list-unstyled navbar navbar-default">
         <% if (user.getUserRole() == 1) { %>
-        <li><a href="ListProducts?afficherTout=1">Afficher tout les produits</a></li>
-        <li><a href="ListProducts?ajouterItem=1">Ajouter un produit</a></li>
-        <li><a href="listCategories">Categories</a></li>
-         <li><a href="newCategory">Ajouter categorie</a></li>
+        <li><a  href="ListProducts?afficherTout=1">Afficher tout les produits</a></li>
+        <li><a  href="ListProducts?ajouterItem=1">Ajouter un produit</a></li>
+        <li><a  href="listCategories">Categories</a></li> 
+        <li><a  href="newCategory">Ajouter categorie</a></li> 
 <% } else {%>
-        <li><a href="<%="order-history"%>">Historique commande</a></li>
+         <li><a href="<%="order-history"%>">Historique commande</a></li>
             <% } %>    
-        <li>&nbsp;</li>
+        
         <li><a href="login">Déconnexion</a></li>
 
     </ul>
