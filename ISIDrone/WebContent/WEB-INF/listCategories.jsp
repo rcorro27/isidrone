@@ -12,7 +12,7 @@
 <jsp:include page="<%=Const.PATH_MENU_JSP%>"/>
 
 <% ArrayList<Category> categories = (ArrayList<Category>) request.getAttribute("categories");
-    
+
 
 %>
 <!DOCTYPE html>
@@ -81,6 +81,14 @@
             </div>
         </div>
     </div>
+
+    <div class="alert alert-info">
+        ${message}
+    </div>                                    
+
+
+
+
 
 </div>
 <!-- Footer -->
