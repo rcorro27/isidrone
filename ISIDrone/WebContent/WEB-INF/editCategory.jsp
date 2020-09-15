@@ -4,7 +4,10 @@
     Author     : samue
 --%>
 
+<%@page import="util.Const"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page="<%=Const.PATH_HEAD_JSP%>"/>
+<jsp:include page="<%=Const.PATH_MENU_JSP%>"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,16 +24,20 @@
         
         
         --%>
-        <form>
-            <label for="categoryName">Nom de la catégorie:</label>
-            <input type="text" id="categoryName" name="categoryName">
-            <label for="categoryDescription">Description de la catégorie:</label>
-            <input type="text" id="categoryDescription" name="categoryDescription">
-            <label for="categoryPosition">Position de la catégorie:</label>
-            <input type="text" id="categoryPosition" name="categoryPosition">
-            <label for="categoryActiveStatus">Catégorie active ou pas:</label>
-            <input type="text" id="categoryActiveStatus" name="categoryActiveStatus">
-            <input type="submit">
-        </form>
+        <div class="form-group">
+            <form>
+                <label for="categoryName">Nom de la catégorie:</label>
+                <input type="text" id="categoryName" name="categoryName"><br>
+                <label for="categoryDescription">Description de la catégorie:</label>
+                <input type="text" id="categoryDescription" name="categoryDescription"><br>
+                <label for="categoryPosition">Position de la catégorie:</label>
+                <input type="text" id="categoryPosition" name="categoryPosition"><br>
+                <label for="categoryActiveStatus">Catégorie active ou pas:</label>
+                <input type="text" id="categoryActiveStatus" name="categoryActiveStatus"><br>
+                <input type="submit">
+            </form>
+        </div>
     </body>
+    <!-- footer -->
+    <jsp:include page="<%=Const.PATH_FOOTER_JSP%>"/>
 </html>

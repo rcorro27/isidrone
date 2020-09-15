@@ -45,11 +45,8 @@
         <li><a  href="ListProducts?ajouterItem=1">Ajouter un produit</a></li>
         <li><a  href="listCategories">Categories</a></li> 
         <li><a  href="newCategory">Ajouter categorie</a></li> 
-<<<<<<< HEAD
         <li><a  href="editCategory">Modifier categorie</a></li>
-=======
         <li><a  href="listOrders">Commandes</a></li> 
->>>>>>> 537e6289e5691f2636c2589a819063179d75e280
 <% } else {%>
          <li><a href="<%="order-history"%>">Historique commande</a></li>
             <% } %>    
