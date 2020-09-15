@@ -140,10 +140,10 @@ public class MOrder {
 
         try {
             MDB.connect();
-            String query = "SELECT `order`.id, user.firstName,`order`.date FROM `order` JOIN user on `order`.user_id=user.id";
+            String query = "SELECT `order`.id, user.firstName,`order`.date ,`order`.isShipped FROM `order` JOIN user on `order`.user_id=user.id";
             ResultSet rs = MDB.execQuery(query);
             while (rs.next()) {
-                orders.add(new OrderByUserName(rs.getInt(1),rs.getString(2),rs.getDate(3)));
+                orders.add(new OrderByUserName(rs.getInt(1),rs.getString(2),rs.getDate(3),rs.getInt(4)));
             }
 
         } catch (SQLException e) {
