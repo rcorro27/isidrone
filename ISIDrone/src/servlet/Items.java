@@ -58,13 +58,15 @@ public class Items extends HttpServlet {
                 if (itemsCategoryAverifier.isEmpty()) {
                     ActionCategory.deleteCategory(request, Integer.parseInt(idCategoryToDelete));
                     ActionCategory.getCategories(request, response);
+                    String message = "Categorie effacer avec succes";
+                    request.setAttribute("message", message);
                     request.getRequestDispatcher(Const.PATH_PAGE_LIST_CATEGORIES).forward(request, response);
                 } else if (!itemsCategoryAverifier.isEmpty()) {
-                    try ( PrintWriter out = response.getWriter()) {
-                        ActionCategory.getCategories(request, response);
-                       //out.println("<h1>vous ne pouvez pas effacer cette categorie des produits utilisent </h1>");
-                        request.getRequestDispatcher(Const.PATH_PAGE_LIST_CATEGORIES).forward(request, response);
-                    }
+                    String message = "Vouz ne pouvez pas effacer cette categoire elle est utiliser par des produits";
+                    request.setAttribute("message", message);
+                    ActionCategory.getCategories(request, response);
+                    request.getRequestDispatcher(Const.PATH_PAGE_LIST_CATEGORIES).forward(request, response);
+
                 }
 
             }
