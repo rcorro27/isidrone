@@ -47,12 +47,19 @@
         <li><a  href="newCategory">Ajouter categorie</a></li> 
 
         <li><a  href="editCategory">Modifier categorie</a></li>
+<<<<<<< HEAD
+
         <li><a  href="listOrders">Commandes</a></li> 
 
+=======
+        <li><a  href="listOrders">Commandes</a></li> 
+=======
         <li><a  href="listOrders?effacer=false">Commandes</a></li> 
         <li><a  href="editCategory">Modifier categorie</a></li>
 =======
+>>>>>>> 537e6289e5691f2636c2589a819063179d75e280
 >>>>>>> d5871f38a1c48c80cc6914d682cfd1b4405e2239
+>>>>>>> 8c98b7fde4bd89bfa0bcf2fd788b63deb8e4a4d1
 <% } else {%>
          <li><a href="<%="order-history"%>">Historique commande</a></li>
             <% } %>    
