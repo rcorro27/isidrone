@@ -15,14 +15,20 @@ import entities.*;
  * @author rcorroch
  */
 public class ActionAdmin {
-    public static void getallitems(HttpServletRequest request) throws IOException{
+
+    public static void getallitems(HttpServletRequest request) throws IOException {
         request.setAttribute("listitems", MAdmin.getallitems());
     }
 
     public static boolean deleteitem(HttpServletRequest request, int id) throws IOException {
         return MAdmin.Deletitem(id);
     }
-        public static boolean additem(HttpServletRequest request, Item item) throws IOException {
+
+    public static boolean deleteorder(HttpServletRequest request, int id) throws IOException {
+        return MAdmin.DeleteOrder(id);
+    }
+
+    public static boolean additem(HttpServletRequest request, Item item) throws IOException {
         return MAdmin.addItem(item);
     }
 }

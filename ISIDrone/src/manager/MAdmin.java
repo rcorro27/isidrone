@@ -85,7 +85,6 @@ public class MAdmin {
         return deleteItemTrue > 0;
     }
 
-
     public static boolean addItem(Item item) throws IOException {
         int itemAdd = 0;
         try {
@@ -115,5 +114,24 @@ public class MAdmin {
         return itemAdd > 0;
     }
 
+    public static boolean DeleteOrder(int id) throws IOException {
+        int deleteOrderTrue = 0;
+        try {
+            MDB.connect();
+            String query;
+            PreparedStatement preparedStatement;
+
+            query = "delete FROM isidrone.order where id = ? ";
+            preparedStatement = MDB.getPS(query);
+            preparedStatement.setInt(1, id);
+            deleteOrderTrue = preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+        return deleteOrderTrue > 0;
+    }
 
 }

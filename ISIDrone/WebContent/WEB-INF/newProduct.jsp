@@ -15,6 +15,7 @@
     DecimalFormat df = new DecimalFormat("####0.00");
 
     Item item = (Item) request.getAttribute("item");
+   
 %>
 
 <jsp:include page="<%=Const.PATH_HEAD_JSP%>"/>

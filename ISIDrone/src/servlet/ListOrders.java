@@ -32,8 +32,18 @@ public class ListOrders extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ActionOrder.getOrders(request, response);
-        request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
+        String orderASupprimer = request.getParameter("order");
+        String effacer = request.getParameter("effacer");
+
+        if (orderASupprimer != null && Boolean.valueOf(effacer)) {
+            action.ActionAdmin.deleteorder(request, Integer.parseInt(orderASupprimer));
+            ActionOrder.getOrders(request, response);
+            request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
+        } else if (!Boolean.valueOf(effacer)) {
+            ActionOrder.getOrders(request, response);
+            request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

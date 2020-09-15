@@ -57,13 +57,13 @@
                                                     <h1 class="modal-title">ATTENTION </h1>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h2>Est vous sure de vouloir supprimer cette Order ?</h2>
+                                                    <h2>Est vous sure de vouloir supprimer cette Commande ?</h2>
                                                 </div>
                                                 <div class="modal-footer">
 
 
-                                                    <a href="items?category=<%=order.getId()%>&effacer=true" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
-                                                    <a href="listCategories" class="btn btn-danger" >non </a>
+                                                    <a href="listOrders?order=<%=order.getId()%>&effacer=true" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
+                                                    <a href="listOrders?effacer=false" class="btn btn-danger" >non </a>
                                                 </div>
                                             </div>
 
