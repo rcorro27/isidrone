@@ -51,8 +51,7 @@
 
         <li><a  href="listOrders?effacer=false">Commandes</a></li> 
         <li><a  href="editCategory">Modifier categorie</a></li>
-=======
->>>>>>> d5871f38a1c48c80cc6914d682cfd1b4405e2239
+
 <% } else {%>
          <li><a href="<%="order-history"%>">Historique commande</a></li>
             <% } %>    
