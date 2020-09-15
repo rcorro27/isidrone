@@ -64,7 +64,12 @@ public class ListProducts extends HttpServlet {
 
             }
             if (newProduct != null) {
-                itemAjouter = new entities.Item(Integer.parseInt(productCat), Integer.parseInt(productQte), productName, productDesc, productSerial,"drone_default.png"  , Double.parseDouble(productPrice), Integer.parseInt(productActive));
+                if (productActive != null) {
+                    itemAjouter = new entities.Item(Integer.parseInt(productCat), Integer.parseInt(productQte), productName, productDesc, productSerial, "drone_default.png", Double.parseDouble(productPrice), Integer.parseInt(productActive));
+                } else if (productActive == null) {
+                    itemAjouter = new entities.Item(Integer.parseInt(productCat), Integer.parseInt(productQte), productName, productDesc, productSerial, "drone_default.png", Double.parseDouble(productPrice), 0);
+                }
+
                 ActionAdmin.additem(request, itemAjouter);
                 ActionAdmin.getallitems(request);
                 request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
@@ -72,7 +77,8 @@ public class ListProducts extends HttpServlet {
             if (afficherTout != null) {
                 ActionAdmin.getallitems(request);
                 request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
-            } /*else {
+            }
+            /*else {
                 ActionAdmin.getallitems(request);
                 request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
             }*/
