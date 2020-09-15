@@ -6,6 +6,8 @@ import entities.Cart;
 import entities.Order;
 import entities.User;
 import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import manager.MOrder;
 import manager.MSendMail;
 
@@ -23,7 +25,9 @@ public class ActionOrder {
 		
 		return orderId;
 	}
-	
+	public static void getOrders(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		request.setAttribute("orders", MOrder.getOrders());
+	}
 	private static void sendEmail(String to){
 		
 		// Envoie d'un email de confirmation

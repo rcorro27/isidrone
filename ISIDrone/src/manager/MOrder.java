@@ -10,6 +10,7 @@ import entities.Cart;
 import entities.Item;
 import entities.ItemCart;
 import entities.Order;
+import entities.OrderByUserName;
 import entities.User;
 import java.io.IOException;
 
@@ -133,5 +134,25 @@ public class MOrder {
 		
 		return orderList;
 	}
+        public static ArrayList<OrderByUserName> getOrders() throws IOException {
+
+        ArrayList<OrderByUserName> orders = new ArrayList<OrderByUserName>();
+
+        try {
+            MDB.connect();
+            String query = "SELECT `order`.id, user.firstName,`order`.date FROM `order` JOIN user on `order`.user_id=user.id";
+            ResultSet rs = MDB.execQuery(query);
+            while (rs.next()) {
+                orders.add(new OrderByUserName(rs.getInt(1),rs.getString(2),rs.getDate(3)));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        return orders;
+    }
 	
 }
