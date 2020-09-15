@@ -86,7 +86,7 @@ if(hm_fieldErrorMsg != null && hm_fieldErrorMsg.containsKey("email")) {
 					<div class="form-group">	
 						<div class="col-sm-10">
 							<label for="email" class="control-label">*Position</label>
-                                                        <input type="number" min="1" max="10" class="form-control" name="position"  required />
+                                                        <input type="number" min="1"  class="form-control" name="position"  required />
 						</div>
 					</div>
 <%
