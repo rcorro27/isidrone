@@ -43,7 +43,7 @@
                     <li><a href="about">À Propos</a></li>
                     <li><a href="service">Services</a></li>
                     <li><a href="contact">Contact</a></li>
-                    <li><a href="items?category=1">Boutique</a></li>
+                    <li><a href="items?category=1&effacer=false">Boutique</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

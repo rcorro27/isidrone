@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="entities.Item"%>
+<%@page import="manager.MCategory" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="entities.ItemCart"%>
@@ -56,7 +57,7 @@
 
                             <tr>
                                 <td style="hover"><%=item.getName()%></td>
-                                <td class="text-center"><%=item.getCategory()%></td>
+                                <td class="text-center"><%=MCategory.getCategoryById(item.getCategory()).getName()%></td>
                                 <td class="text-center"><%=item.getPrice()%></td>
                                 <td class="text-center"><%=item.getStock()%></td>
                                 <td class="text-center"><a href="editProduct?item=<%=item.getId()%>" class="btn btn-info btn-sm">Modifier</a></td>

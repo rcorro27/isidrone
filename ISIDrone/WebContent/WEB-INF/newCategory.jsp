@@ -7,21 +7,25 @@
 <%@page import="util.Misc"%>
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ page import="util.Const"%>
 <jsp:include page="<%=Const.PATH_HEAD_JSP%>"/>
 <jsp:include page="<%=Const.PATH_MENU_JSP%>"/>
 
 <%
-@SuppressWarnings("unchecked")
-HashMap<String, String> hm_formParamValue = (HashMap<String, String>)request.getAttribute("hm_formParamValue");
-@SuppressWarnings("unchecked")
-HashMap<String, String> hm_fieldErrorMsg = (HashMap<String, String>)request.getAttribute("hm_fieldErrorMsg");
-String error = (String)request.getAttribute("error");
+    @SuppressWarnings(  "unchecked")
+    HashMap<String, String> hm_formParamValue = (HashMap<String, String>) request.getAttribute("hm_formParamValue");
+    @SuppressWarnings(  "unchecked")
+    HashMap<String, String> hm_fieldErrorMsg = (HashMap<String, String>) request.getAttribute("hm_fieldErrorMsg");
+    //
+    String nameCategorieVal = (String)request.getAttribute("name");
+    String descriptionCategorieVal = (String)request.getAttribute("description");
+    //int positionVal = (int)request.getAttribute("position");
+    //
+    String error = (String) request.getAttribute("error");
 %>
 <!-- Page Content -->
 <div class="container">
-
  <%
  if(error != null) {
 	 if(error.equals("accountExisting")) {
