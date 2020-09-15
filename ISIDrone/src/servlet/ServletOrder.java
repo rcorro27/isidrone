@@ -19,7 +19,10 @@ public class ServletOrder extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+             
 		request.getRequestDispatcher(Const.PATH_PAGE_INVOICE).forward(request, response);
+                
+                
 	}
 
 }
