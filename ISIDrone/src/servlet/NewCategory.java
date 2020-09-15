@@ -79,6 +79,12 @@ public class NewCategory extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // processRequest(request, response);
+        
+        //
+        String nameCat = request.getParameter("nameCat");
+        String descriptionCat = request.getParameter("descCat");
+        int position = Integer.parseInt(request.getParameter("position"));
+        //
         String test = request.getParameter("active");
         Category category = new Category();
         category.setName(request.getParameter("nameCat"));
@@ -94,6 +100,9 @@ public class NewCategory extends HttpServlet {
         int rep = MCategory.addCategorie(category);
         if (rep == 0) {
             request.setAttribute("error", "accountExisting");
+            request.setAttribute("name", nameCat);
+            request.setAttribute("description", descriptionCat);
+            request.setAttribute("position", position);
             request.getRequestDispatcher(Const.PATH_PAGE_NEW_CATEGORIE).forward(request, response);
 
         }else 

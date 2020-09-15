@@ -123,4 +123,34 @@ public class MCategory {
         }
         return result> 0;   
     }
+    
+    public static Category getCategoryById(int id) throws IOException {
+        Category category = null;
+        try {
+            MDB.connect();
+            String query = "select * from category where id = ?";
+
+            PreparedStatement ps = MDB.getPS(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.isBeforeFirst()) {
+                category = new Category();
+                while (rs.next()) {//pour parcourir le resultset
+                    category.setId(rs.getInt("id"));
+                    category.setName(rs.getString("name"));
+                    category.setDescription(rs.getString("description"));
+                    category.setOrder(rs.getInt("order"));
+                    category.setIsActive(rs.getBoolean("isActive"));
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        return category;
+    }
 }
