@@ -9,6 +9,7 @@ import action.*;
 import entities.Category;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -78,7 +79,11 @@ public class NewCategory extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HashMap<String, String> hm_formParamValue = new HashMap<String, String>();
         // processRequest(request, response);
+        hm_formParamValue.put("nameCat", request.getParameter("nameCat"));
+        hm_formParamValue.put("descCat", request.getParameter("descCat"));
+        hm_formParamValue.put("position", request.getParameter("position"));
         String test = request.getParameter("active");
         Category category = new Category();
         category.setName(request.getParameter("nameCat"));
@@ -94,6 +99,7 @@ public class NewCategory extends HttpServlet {
         int rep = MCategory.addCategorie(category);
         if (rep == 0) {
             request.setAttribute("error", "accountExisting");
+            request.setAttribute("hm_formParamValue", hm_formParamValue);
             request.getRequestDispatcher(Const.PATH_PAGE_NEW_CATEGORIE).forward(request, response);
 
         }else 

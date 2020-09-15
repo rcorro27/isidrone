@@ -60,42 +60,23 @@ if(hm_fieldErrorMsg != null && hm_fieldErrorMsg.containsKey("lastName")) {
 					<div class="form-group">
 						<div class="col-sm-10">
 							<label for="nameCat" class="control-label">*Nom categorie</label>
-							<input type="text" id="nameCat" class="form-control" name="nameCat" required />
+							<input type="text" id="nameCat" class="form-control" name="nameCat" value="<%=Misc.getOrDefault(hm_formParamValue, "nameCat", "")%>" required />
 						</div>
 					</div>
-<%
-if(hm_fieldErrorMsg != null && hm_fieldErrorMsg.containsKey("firstName")) {
-%>
-					<div class="alert alert-warning" style="margin-bottom: 0px; white-space: pre-line;"><%=hm_fieldErrorMsg.get("firstName")%></div>
-<%
-}
-%>
 					<div class="form-group">
 						<div class="col-sm-10">
 							<label for="descCat" class="control-label">*Description </label>
-                                                        <textarea type="text" id="descCat" class="form-control" name="descCat"  required ></textarea>
+                                                        <textarea type="text" id="descCat" class="form-control" name="descCat" required ><%=Misc.getOrDefault(hm_formParamValue, "descCat", "")%></textarea>
 						</div>
 					</div>
-<%
-if(hm_fieldErrorMsg != null && hm_fieldErrorMsg.containsKey("email")) {
-%>
-					<div class="alert alert-warning" style="margin-bottom: 0px; white-space: pre-line;"><%=hm_fieldErrorMsg.get("email")%></div>
-<%
-}
-%>
+
 					<div class="form-group">	
 						<div class="col-sm-10">
 							<label for="email" class="control-label">*Position</label>
-                                                        <input type="number" min="1"  class="form-control" name="position"  required />
+                                                        <input type="number" min="1"  class="form-control" name="position" value="<%=Misc.getOrDefault(hm_formParamValue, "position", "")%>" required />
 						</div>
 					</div>
-<%
-if(hm_fieldErrorMsg != null && hm_fieldErrorMsg.containsKey("confirmEmail")) {
-%>
-					<div class="alert alert-warning" style="margin-bottom: 0px; white-space: pre-line;"><%=hm_fieldErrorMsg.get("confirmEmail")%></div>
-<%
-}
-%>
+
 					<div class="form-group">	
 						<div class="col-sm-10">
                                                     	<input type="checkbox" class="form-check-input" id="exampleCheck1" value="1" name="active"> 
@@ -103,24 +84,11 @@ if(hm_fieldErrorMsg != null && hm_fieldErrorMsg.containsKey("confirmEmail")) {
 							<label for="exampleCheck1" class="control-label" style="padding-top: 0px;">Activer la categorie</label>
 						</div>
 					</div>
-<%
-if(hm_fieldErrorMsg != null && hm_fieldErrorMsg.containsKey("password")) {
-%>
-					<div class="alert alert-warning" style="margin-bottom: 0px; white-space: pre-line;"><%=hm_fieldErrorMsg.get("password")%></div>
-<%
-}
-%>
 
 					
 				</fieldset>
 				
-				<%
-				if(request.getParameter("fromCart") != null){
-				%>
-				<input type="hidden" name="fromCart" value="true">
-				<%
-					}
-				%>
+				
 				<div class="form-group text-center" style="clear: left; top: 15px; margin-bottom: 15px;">
 						<button type="submit" class="btn btn-default">Ajouter</button>
 				</div>
