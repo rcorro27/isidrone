@@ -13,7 +13,7 @@
 <jsp:include page="<%=Const.PATH_MENU_JSP%>"/>
 
 <% ArrayList<entities.OrderByUserName> orders = (ArrayList<entities.OrderByUserName>) request.getAttribute("orders");
-    
+
 
 %>
 <!DOCTYPE html>
@@ -49,7 +49,7 @@
                                 <td><%=order.getNameUser()%></td>
                                 <td class="text-center"><%=order.getDateOrder()%></td>
                                 <td class="text-center">
-                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=order.getId()%>">Supprimer</button>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=order.getId()%>" <%=(order.getIsShipped() == 1 ? "disabled" : "")%>>Supprimer</button>
                                     <div id="myModal_<%=order.getId()%>" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
                                             <!-- Modal content-->
@@ -72,11 +72,11 @@
                                         </div>
                                     </div>
                                 </td>
-                                
-                                
+
+
                                 <td class="text-center">
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=order.getId()%>">
-                                        <%if(order.getIsShipped()==1){%>En cours d expedition <% } else {%>Expedier <%}%></button>
+                                        <%if (order.getIsShipped() == 1) {%>En cours d expedition <% } else {%>Expedier <%}%></button>
                                     <div id="myModal_<%=order.getId()%>" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
                                             <!-- Modal content-->

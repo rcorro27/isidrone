@@ -8,20 +8,20 @@
          pageEncoding="UTF-8"%>
 <style>
     #userAction {
-      display: none;
-    position: absolute;
-    z-index: 1;
-    background-color: white;
-    width: 200px;
-    margin-top: 10px;
-    margin-left: -121px;
+        display: none;
+        position: absolute;
+        z-index: 1;
+        background-color: white;
+        width: 200px;
+        margin-top: 10px;
+        margin-left: -121px;
 
-}
-    
-#menuA{
+    }
+
+    #menuA{
         margin:0 0 10px 0;   
 
-}
+    }
 </style>
 <%
 //S'il n'y a pas d'utilisateur déjà de connecté
@@ -47,15 +47,13 @@
         <li><a  href="newCategory">Ajouter categorie</a></li> 
 
         <li><a  href="editCategory">Modifier categorie</a></li>
-        <li><a  href="listOrders">Commandes</a></li> 
-
         <li><a  href="listOrders?effacer=false">Commandes</a></li> 
-        <li><a  href="editCategory">Modifier categorie</a></li>
 
-<% } else {%>
-         <li><a href="<%="order-history"%>">Historique commande</a></li>
+
+        <% } else {%>
+        <li><a href="<%="order-history"%>">Historique commande</a></li>
             <% } %>    
-        
+
         <li><a href="login">Déconnexion</a></li>
 
     </ul>
