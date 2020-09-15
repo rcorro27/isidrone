@@ -12,6 +12,14 @@ public class Order extends Cart{
 		super();
 	}
 
+    public Order(int id, int userId, String date, boolean isShipped) {
+        this.id = id;
+        this.userId = userId;
+        this.date = date;
+        this.isShipped = isShipped;
+    }
+        
+
     public boolean isIsShipped() {
         return isShipped;
     }
