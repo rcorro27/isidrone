@@ -46,19 +46,15 @@
         <li><a  href="listCategories">Categories</a></li> 
         <li><a  href="newCategory">Ajouter categorie</a></li> 
         <li><a  href="editCategory">Modifier categorie</a></li>
-        
         <li><a  href="listOrders?effacer=false">Commandes</a></li>
         <li><a href="ListUsers?afficherTout=true">Afficher Utilisateurs</a></li>
-
-
-        <li><a  href="listOrders?effacer=false">Commandes</a></li> 
         <li><a  href="editCategory">Modifier categorie</a></li>
 
         <% } else {%>
         <li><a href="<%="order-history"%>">Historique commande</a></li>
             <% } %>    
 
-        
+
         <li><a href="login">Déconnexion</a></li>
 
     </ul>
