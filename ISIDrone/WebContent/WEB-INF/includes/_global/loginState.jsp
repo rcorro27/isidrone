@@ -45,9 +45,9 @@
         <li><a  href="ListProducts?ajouterItem=1">Ajouter un produit</a></li>
         <li><a  href="listCategories">Categories</a></li> 
         <li><a  href="newCategory">Ajouter categorie</a></li> 
-
         <li><a  href="editCategory">Modifier categorie</a></li>
-        <li><a  href="listOrders?effacer=false">Commandes</a></li> 
+        <li><a  href="listOrders?effacer=false">Commandes</a></li>
+        <li><a href="ListUsers?afficherUsers=1">Afficher Utilisateurs</a></li>
 
 
         <% } else {%>
