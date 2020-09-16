@@ -4,6 +4,7 @@
     Author     : rcorroch
 --%>
 
+<%@page import="entities.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="entities.Item"%>
 <%@page import="manager.MCategory" %>
@@ -14,7 +15,7 @@
 <%@page import="util.Const"%>
 <jsp:include page="<%=Const.PATH_HEAD_JSP%>"/>
 <jsp:include page="<%=Const.PATH_MENU_JSP%>"/>
-<%ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("listitems");%>
+<%ArrayList<User> users = (ArrayList<User>) request.getAttribute("listusers");%>
 <!DOCTYPE html>
 
 <div class="container">
@@ -30,7 +31,7 @@
                     <div class="table-responsive">
                         <table class="table table-condensed">
                             <%
-                                if (items != null && items.size() != 0) {
+                                if (users != null && users.size() != 0) {
                             %>
                             <thead>
                                 <tr>
@@ -50,18 +51,17 @@
                             %>
                             <%
                                 int i = 0;
-                                for (Item item : items) {
+                                for (User user : users) {
                                     i++;
                             %>
 
                             <tr>
-                                <td style="hover"><%=item.getName()%></td>
-                                <td class="text-center"><%=MCategory.getCategoryById(item.getCategory()).getName()%></td>
-                                <td class="text-center"><%=item.getPrice()%></td>
-                                <td class="text-center"><%=item.getStock()%></td>
+                                <td style="hover"><%=user.getLastName()%></td>
+                                <td class="text-center"><%=user.getFirstName()%></td>
+                                <td class="text-center"><%=user.getEmail()%></td>
                                 <td class="text-center">
-                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=item.getId()%>">Supprimer</button>
-                                    <div id="myModal_<%=item.getId()%>" class="modal fade" role="dialog">
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=user.getId()%>">future action</button>
+                                    <div id="myModal_<%=user.getId()%>" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
                                             <!-- Modal content-->
                                             <div class="modal-content">
@@ -70,13 +70,13 @@
                                                     <h1 class="modal-title">ATTENTION </h1>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h2>Est vous sure de vouloir supprimer cette produit ??? </h2>
+                                                    <h2>Future texte a mettre :)  </h2>
                                                 </div>
                                                 <div class="modal-footer">
 
 
-                                                    <a href="ListProducts?itemASupprimer=<%=item.getId()%>" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
-                                                    <a href="ListProducts?afficherTout=1" class="btn btn-danger" >non </a>
+                                                    <a href="ListUsers?afficherTout=1" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
+                                                    <a href="ListUsers?afficherTout=1" class="btn btn-danger" >non </a>
                                                 </div>
                                             </div>
 

@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import action.ActionAdmin;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,10 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import manager.MAdmin;
-import action.ActionAdmin;
 import util.Const;
-import entities.*;
 
 /**
  *
@@ -36,28 +34,14 @@ public class ListUsers extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String AfficherUsers = request.getParameter("afficherUsers");
-       /* String itemAAjouter = request.getParameter("ajouterItem");
-        String newProduct = request.getParameter("newProduct");
-        String afficherTout = request.getParameter("afficherTout");*/
-        /**
-         * REQUEST DANS LE POST POUR AJOUTER UN PRODUIT****
-         */
-       /* String productName = request.getParameter("productName");
-        String productCat = request.getParameter("productCat");
-        String productDesc = request.getParameter("descProduct");
-        String productPrice = request.getParameter("priceProduct");
-        String productSerial = request.getParameter("serialProduct");
-        String productQte = request.getParameter("qteProduct");
-        String productActive = request.getParameter("active");
-        entities.Item itemAjouter = null;*/
+        String itemASupprimer = request.getParameter("afficherTout");
         try ( PrintWriter out = response.getWriter()) {
+            if (Integer.parseInt(itemASupprimer) == 1) {
+                ActionAdmin.getallUsers(request);
+                request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
+            
+            }
             /* TODO output your page here. You may use following sample code. */
-           
-            /*else {
-                ActionAdmin.getallitems(request);
-                request.getRequestDispatcher(Const.PATH_PAGE_LIST_PRODUCTS).forward(request, response);
-            }*/
 
         }
     }
