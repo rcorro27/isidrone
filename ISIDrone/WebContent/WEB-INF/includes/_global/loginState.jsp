@@ -47,7 +47,7 @@
         <li><a  href="newCategory">Ajouter categorie</a></li> 
 
         <li><a  href="editCategory">Modifier categorie</a></li>
-        <li><a  href="listOrders">Commandes</a></li> 
+        
 
         <li><a  href="listOrders?effacer=false">Commandes</a></li> 
         <li><a  href="editCategory">Modifier categorie</a></li>

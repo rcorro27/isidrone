@@ -27,6 +27,9 @@ public class ActionAdmin {
     public static boolean deleteorder(HttpServletRequest request, int id) throws IOException {
         return MAdmin.DeleteOrder(id);
     }
+     public static void updateShippedOrderState(HttpServletRequest request, int id,int isShipped) throws IOException {
+         MAdmin.updateShippedOrderState(id,isShipped);
+    }
 
     public static boolean additem(HttpServletRequest request, Item item) throws IOException {
         return MAdmin.addItem(item);

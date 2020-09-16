@@ -33,8 +33,10 @@
                                 <tr>
                                     <td><strong>Nom</strong></td>
                                     <td class="text-center"><strong>Date commande </strong></td>
-                                    <td class="text-center"><strong>Suppression </strong></td>
                                     <td class="text-center"><strong>Etat Livraison  </strong></td>
+                                    <td class="text-center"><strong>Suppression </strong></td>
+                                    <td class="text-center"><strong>Action </strong></td>
+                                    
                                 </tr>
                             </thead>
                             <%
@@ -48,6 +50,8 @@
                             <tr>
                                 <td><%=order.getNameUser()%></td>
                                 <td class="text-center"><%=order.getDateOrder()%></td>
+                         <td><%if(order.getIsShipped()==1){%>En cours d expedition <% } else {%>Expedier <%}%></td>
+
                                 <td class="text-center">
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=order.getId()%>">Supprimer</button>
                                     <div id="myModal_<%=order.getId()%>" class="modal fade" role="dialog">
@@ -73,11 +77,10 @@
                                     </div>
                                 </td>
                                 
-                                
                                 <td class="text-center">
-                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=order.getId()%>">
-                                        <%if(order.getIsShipped()==1){%>En cours d expedition <% } else {%>Expedier <%}%></button>
-                                    <div id="myModal_<%=order.getId()%>" class="modal fade" role="dialog">
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myMod_<%=order.getId()%>">
+                                        <%if(order.getIsShipped()==1){%>Annuler  <% } else {%> Expidier  <%}%></button>
+                                    <div id="myMod_<%=order.getId()%>" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
                                             <!-- Modal content-->
                                             <div class="modal-content">
@@ -86,13 +89,13 @@
                                                     <h1 class="modal-title">ATTENTION </h1>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h2>Est vous sure de vouloir supprimer cette Order ?</h2>
+                                                    <h2>Est vous sure de vouloir passer cette commande ?</h2>
                                                 </div>
                                                 <div class="modal-footer">
 
 
-                                                    <a href="items?category=<%=order.getId()%>&effacer=true" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
-                                                    <a href="listCategories" class="btn btn-danger" >non </a>
+                                                 <a href="isShipped?order=<%=order.getId()%>&update=true&etat=<%=order.getIsShipped()%>" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
+                                                    <a href="listOrders?update=false" class="btn btn-danger" >non </a>
                                                 </div>
                                             </div>
 

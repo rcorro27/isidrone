@@ -133,5 +133,29 @@ public class MAdmin {
         }
         return deleteOrderTrue > 0;
     }
+    
+     public static void updateShippedOrderState(int isShipped,int id) throws IOException {
+        try {
+			MDB.connect();
+                        Connection cnx=MDB.connection();
+			String query = "UPDATE `order` SET `isShipped` = ? WHERE `order`.`id`=?";
+			PreparedStatement ps = cnx.prepareStatement(query);
+			//PreparedStatement ps = MDB.getPS(query);
+			//ps.setInt(1, item.getCategory());
+                        ps.setInt(1, isShipped);
+                        ps.setInt(2,id);
+                       
+
+			ps.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			MDB.disconnect();
+		}
+		
+    }
 
 }
