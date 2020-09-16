@@ -19,8 +19,16 @@
 <!DOCTYPE html>
 
 <div class="container">
+    <div>
+        <h3>Desirez vous rechercher un utilisateur ?? </h3>
+    </div>
     <div class="row">
-
+        <form class="navbar-form" action="ListUsers?">
+            <div id="auto-search" class="form-group"  style="padding-right:0;">
+                <input class="form-control biginput" id="autocomplet" placeholder="Rechercher utilisateur" type="text" name="search" autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn-info">Rechercher</button>
+        </form>
 
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -95,6 +103,7 @@
             </div>
         </div>
     </div>
+    <a class="btn btn-info" href="ListUsers?afficherTout=true">Afficher tout les  utilisateurs</a>
 
 </div>
 <!-- Footer -->

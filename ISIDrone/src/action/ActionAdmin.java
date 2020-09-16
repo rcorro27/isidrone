@@ -19,8 +19,13 @@ public class ActionAdmin {
     public static void getallitems(HttpServletRequest request) throws IOException {
         request.setAttribute("listitems", MAdmin.getallitems());
     }
-        public static void getallUsers(HttpServletRequest request) throws IOException {
+
+    public static void getallUsers(HttpServletRequest request) throws IOException {
         request.setAttribute("listusers", MAdmin.getallusers());
+    }
+
+    public static void getallUsersBySearch(HttpServletRequest request, String search) throws IOException {
+        request.setAttribute("listusers", MAdmin.getSearchUser(search));
     }
 
     public static boolean deleteitem(HttpServletRequest request, int id) throws IOException {

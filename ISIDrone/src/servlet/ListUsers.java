@@ -34,16 +34,19 @@ public class ListUsers extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String itemASupprimer = request.getParameter("afficherTout");
-        try ( PrintWriter out = response.getWriter()) {
-            if (Integer.parseInt(itemASupprimer) == 1) {
-                ActionAdmin.getallUsers(request);
-                request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
-            
-            }
-            /* TODO output your page here. You may use following sample code. */
+        String afficherUsers = request.getParameter("afficherTout");
+        String userSearch = request.getParameter("search");
+        String search = request.getParameter("rechercher");
 
+        if (Boolean.valueOf(afficherUsers)) {
+            ActionAdmin.getallUsers(request);
+            request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
+        } else if (userSearch != null) {
+            ActionAdmin.getallUsersBySearch(request, userSearch);
+            request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
         }
+
+        /* TODO output your page here. You may use following sample code. */
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

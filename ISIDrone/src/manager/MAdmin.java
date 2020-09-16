@@ -175,4 +175,35 @@ public class MAdmin {
         return user;
     }
 
+    public static ArrayList<User> getSearchUser(String search) throws IOException {
+        ArrayList<User> users = new ArrayList<>();
+        try {
+            MDB.connect();
+            String query;
+            PreparedStatement ps;
+            ResultSet rs;
+
+            //query = "select * from product where upper(name) like upper(?) or upper(description) like upper(?) ;";
+            query = "select * from User where upper(firstName) like upper( ? ) or upper(lastName) like upper( ? ) or upper(email) like upper( ? ) and userRole not like '1' ;";
+            ps = MDB.getPS(query);
+            ps.setString(1, "%" + search + "%");
+            ps.setString(2, "%" + search + "%");
+            ps.setString(3, "%" + search + "%");
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                users.add(getUserFromResultSet(rs));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        return users;
+
+    }
+
 }
