@@ -76,13 +76,20 @@
                                         </div>
                                     </div>
                                 </td>
-
-
+<<<<<<< HEAD
+                                
                                 <td class="text-center">
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myMod_<%=order.getId()%>">
                                         <%if(order.getIsShipped()==1){%>Annuler  <% } else {%> Expidier  <%}%></button>
-                                        <%if (order.getIsShipped() == 1) {%>En cours d expedition <% } else {%>Expedier <%}%></button>
                                     <div id="myMod_<%=order.getId()%>" class="modal fade" role="dialog">
+=======
+
+
+                                <td class="text-center">
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=order.getId()%>">
+                                        <%if (order.getIsShipped() == 1) {%>En cours d expedition <% } else {%>Expedier <%}%></button>
+                                    <div id="myModal_<%=order.getId()%>" class="modal fade" role="dialog">
+>>>>>>> b5674d3cf0d996b6e8ca4ba9f546deed3a229add
                                         <div class="modal-dialog">
                                             <!-- Modal content-->
                                             <div class="modal-content">
