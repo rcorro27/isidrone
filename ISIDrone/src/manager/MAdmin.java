@@ -209,7 +209,7 @@ public class MAdmin {
             ResultSet rs;
 
             //query = "select * from product where upper(name) like upper(?) or upper(description) like upper(?) ;";
-            query = "select * from User where upper(firstName) like upper( ? ) or upper(lastName) like upper( ? ) or upper(email) like upper( ? ) and userRole not like '1' ;";
+            query = "select * from user where upper(firstName) like upper( ? ) or upper(lastName) like upper( ? ) or upper(email) like upper( ? ) and userRole not like '1' ;";
             ps = MDB.getPS(query);
             ps.setString(1, "%" + search + "%");
             ps.setString(2, "%" + search + "%");
