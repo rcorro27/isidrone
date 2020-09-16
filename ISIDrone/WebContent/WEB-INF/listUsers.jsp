@@ -83,8 +83,8 @@
                                                 <div class="modal-footer">
 
 
-                                                    <a href="ListUsers?afficherTout=1" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
-                                                    <a href="ListUsers?afficherTout=1" class="btn btn-danger" >non </a>
+                                                    <a href="ListUsers?afficherTout=true" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
+                                                    <a href="ListUsers?afficherTout=true" class="btn btn-danger" >non </a>
                                                 </div>
                                             </div>
 
