@@ -51,27 +51,11 @@
                                 <td><%=cat.getName()%></td>
                                 <td class="text-center"><%=cat.getOrder()%></td>
                                 <td class="text-center">
-                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=cat.getId()%>">Modifier</button>
-                                    <div id="myModal_<%=cat.getId()%>" class="modal fade" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h1 class="modal-title">ATTENTION </h1>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <h2>Etes vous sur de vouloir supprimer cette categorie ?</h2>
-                                                </div>
-                                                <div class="modal-footer">
+                                    <a href="editCategory.jsp"><button class="btn btn-info btn-sm">Modifier</button></a>
+                                    </div>
+                                    </div>
 
-
-                                                    <a href="items?category=<%=cat.getId()%>&effacer=true" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
-                                                    <a href="listCategories" class="btn btn-danger" >non </a>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                                    </div>
                                     </div>
                                 </td>
                                 <td class="text-center">
