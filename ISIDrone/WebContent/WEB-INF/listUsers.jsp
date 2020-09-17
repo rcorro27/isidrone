@@ -67,31 +67,32 @@
                                 <td style="hover"><%=user.getLastName()%></td>
                                 <td class="text-center"><%=user.getFirstName()%></td>
                                 <td class="text-center"><%=user.getEmail()%></td>
-                                <td class="text-center">
-                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=user.getId()%>">future action</button>
-                                    <div id="myModal_<%=user.getId()%>" class="modal fade" role="dialog">
-                                        <div class="modal-dialog">
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h1 class="modal-title">ATTENTION </h1>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <h2>Future texte a mettre :)  </h2>
-                                                </div>
-                                                <div class="modal-footer">
-
-
-                                                    <a href="ListUsers?afficherTout=true" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
-                                                    <a href="ListUsers?afficherTout=true" class="btn btn-danger" >non </a>
-                                                </div>
+                                <td><a href="ListUsers?modifierUser=true&userid=<%=user.getId()%>" class="btn btn-info" >modifier</a></td>
+                            <td class="text-center">
+                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=user.getId()%>">future action</button>
+                                <div id="myModal_<%=user.getId()%>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h1 class="modal-title">ATTENTION </h1>
                                             </div>
+                                            <div class="modal-body">
+                                                <h2>Future texte a mettre :)  </h2>
+                                            </div>
+                                            <div class="modal-footer">
 
+
+                                                <a href="ListUsers?afficherTout=true" class="btn btn-success" >oui</a> <!--class="btn btn-success" data-dismiss="modal">oui</a>-->
+                                                <a href="ListUsers?afficherTout=true" class="btn btn-danger" >non </a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                </td>
+                                    </div>
+                                </div>
+
+                            </td>
                             </tr>
 
                             <%

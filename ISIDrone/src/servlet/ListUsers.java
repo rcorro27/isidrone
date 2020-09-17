@@ -37,13 +37,18 @@ public class ListUsers extends HttpServlet {
         String afficherUsers = request.getParameter("afficherTout");
         String userSearch = request.getParameter("search");
         String search = request.getParameter("rechercher");
+        String modifierUser = request.getParameter("modifierUser");
+        String userId = request.getParameter("userId");
 // voir pourquoi dans le deploiment le code ne functione plus
         if (Boolean.valueOf(afficherUsers)) {
             ActionAdmin.getallUsers(request);
             request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
-        } else if (userSearch != "") {
+        } else if (userSearch != "" && userSearch != null) {
             ActionAdmin.getallUsersBySearch(request, userSearch);
             request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
+        } else if (Boolean.valueOf(modifierUser) && userId != null) {
+
+            request.getRequestDispatcher(Const.PATH_PAGE_MODIFIER_USER).forward(request, response);
         } else {
             ActionAdmin.getallUsers(request);
             request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
