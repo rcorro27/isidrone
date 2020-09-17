@@ -31,7 +31,6 @@
         <div class="form-group">
             <label for="exampleFormControlInput1">Categorie</label>
             <select class="form-control"  name="productCat"  required>
-                <option value="1" >Tous</option>
                 <option value="2" >Avec Camera</option>
                 <option value="3" >Recreatif</option>
                 <option value="4" >Performance</option>
