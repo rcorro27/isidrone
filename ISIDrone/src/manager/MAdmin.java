@@ -5,6 +5,7 @@
  */
 package manager;
 
+import entities.Address;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -134,29 +135,26 @@ public class MAdmin {
         }
         return deleteOrderTrue > 0;
     }
-    
-     public static void updateShippedOrderState(int isShipped,int id) throws IOException {
-        try {
-			MDB.connect();
-                        Connection cnx=MDB.connection();
-			String query = "UPDATE `order` SET `isShipped` = ? WHERE `order`.`id`=?";
-			PreparedStatement ps = cnx.prepareStatement(query);
-			//PreparedStatement ps = MDB.getPS(query);
-			//ps.setInt(1, item.getCategory());
-                        ps.setInt(1, isShipped);
-                        ps.setInt(2,id);
-                       
 
-			ps.executeUpdate();
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			MDB.disconnect();
-		}
-		
+    public static void updateShippedOrderState(int isShipped, int id) throws IOException {
+        try {
+            MDB.connect();
+            Connection cnx = MDB.connection();
+            String query = "UPDATE `order` SET `isShipped` = ? WHERE `order`.`id`=?";
+            PreparedStatement ps = cnx.prepareStatement(query);
+            //PreparedStatement ps = MDB.getPS(query);
+            //ps.setInt(1, item.getCategory());
+            ps.setInt(1, isShipped);
+            ps.setInt(2, id);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
     }
 
     public static ArrayList<User> getallusers() throws IOException {
@@ -231,4 +229,63 @@ public class MAdmin {
 
     }
 
+    public static void updateUser(User user) throws IOException {
+        //Item item = null;
+
+        try {
+            MDB.connect();
+            Connection cnx = MDB.connection();
+            String query = "update product set category=? ,name =?,description=?, price=?,serialNumber=?,stockQty=? ,isActive=? where id =?";
+            PreparedStatement ps = cnx.prepareStatement(query);
+            //PreparedStatement ps = MDB.getPS(query);
+            //ps.setInt(1, item.getCategory());
+            ps.setInt(1, item.getCategory());
+            ps.setString(2, item.getName());
+            ps.setString(3, item.getDescription());
+            ps.setDouble(4, item.getPrice());
+            ps.setString(5, item.getSerial());
+            ps.setInt(6, item.getStock());
+            ps.setInt(7, item.getActiver());
+            ps.setInt(8, item.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        //return item;
+    }
+
+    public static void updateUser(Address adresse) throws IOException {
+        //Item item = null;
+
+        try {
+            MDB.connect();
+            Connection cnx = MDB.connection();
+            String query = "update product set category=? ,name =?,description=?, price=?,serialNumber=?,stockQty=? ,isActive=? where id =?";
+            PreparedStatement ps = cnx.prepareStatement(query);
+            //PreparedStatement ps = MDB.getPS(query);
+            //ps.setInt(1, item.getCategory());
+            ps.setInt(1, item.getCategory());
+            ps.setString(2, item.getName());
+            ps.setString(3, item.getDescription());
+            ps.setDouble(4, item.getPrice());
+            ps.setString(5, item.getSerial());
+            ps.setInt(6, item.getStock());
+            ps.setInt(7, item.getActiver());
+            ps.setInt(8, item.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        //return item;
+    }
 }

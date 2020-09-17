@@ -47,7 +47,7 @@ public class ListUsers extends HttpServlet {
             ActionAdmin.getallUsersBySearch(request, userSearch);
             request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
         } else if (Boolean.valueOf(modifierUser) && userId != null) {
-
+            
             request.getRequestDispatcher(Const.PATH_PAGE_MODIFIER_USER).forward(request, response);
         } else {
             ActionAdmin.getallUsers(request);

@@ -67,7 +67,7 @@
                                 <td style="hover"><%=user.getLastName()%></td>
                                 <td class="text-center"><%=user.getFirstName()%></td>
                                 <td class="text-center"><%=user.getEmail()%></td>
-                                <td><a href="ListUsers?modifierUser=true&userid=<%=user.getId()%>" class="btn btn-info" >modifier</a></td>
+                                <td><a href="ListUsers?modifierUser=true&userId=<%=user.getId()%>" class="btn btn-info" >modifier</a></td>
                             <td class="text-center">
                                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=user.getId()%>">future action</button>
                                 <div id="myModal_<%=user.getId()%>" class="modal fade" role="dialog">
