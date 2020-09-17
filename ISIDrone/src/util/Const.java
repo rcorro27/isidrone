@@ -35,11 +35,14 @@ public class Const {
 	public static String PATH_PAGE_CONTACT = PATH_PRIVATE + "contact.jsp";
         public static String PATH_ADD_CATEGORY = PATH_PRIVATE + "newCategory.jsp";
 	public static String PATH_PAGE_ITEM = PATH_PRIVATE + "item.jsp";
+        public static String PATH_PAGE_CATEGORY_EDIT = PATH_PRIVATE + "editCategory.jsp";
         public static String PATH_PAGE_PRODUCT_EDIT = PATH_PRIVATE + "editProduct.jsp";
         public static String PATH_PAGE_LIST_PRODUCTS = PATH_PRIVATE + "listProducts.jsp";
+        public static String PATH_PAGE_LIST_USERS = PATH_PRIVATE + "listUsers.jsp";
         public static String PATH_PAGE_NEW_PRODUCT = PATH_PRIVATE + "newProduct.jsp";
         public static String PATH_PAGE_NEW_CATEGORIE = PATH_PRIVATE + "newCategory.jsp";
         public static String PATH_PAGE_LIST_CATEGORIES = PATH_PRIVATE + "listCategories.jsp";
+        public static String PATH_PAGE_MODIFIER_USER = PATH_PRIVATE + "editUser.jsp";
 	public static String PATH_PAGE_LOGIN = PATH_PRIVATE + "login.jsp";
 	public static String PATH_PAGE_SIGNUP = PATH_PRIVATE + "signUp.jsp";
 	public static String PATH_PAGE_SIGNUP_COMPLETE = PATH_PRIVATE + "signUpComplete.jsp";

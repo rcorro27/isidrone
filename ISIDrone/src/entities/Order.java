@@ -1,48 +1,55 @@
 package entities;
 
-public class Order extends Cart{
-	private static final long serialVersionUID = 1L;
-	
-	int id;
-	int userId;
-	String date;
-        boolean isShipped;
-	
-	public Order() {
-		super();
-	}
+public class Order extends Cart {
 
-    public boolean isIsShipped() {
-        return isShipped;
+    private static final long serialVersionUID = 1L;
+
+    int id;
+    int userId;
+    String date;
+    int isShipped;
+
+    public Order() {
+        super();
     }
 
-    public void setIsShipped(boolean isShipped) {
+    public Order(int id, int userId, String date, int isShipped) {
+        this.id = id;
+        this.userId = userId;
+        this.date = date;
         this.isShipped = isShipped;
     }
 
-	public int getId() {
-		return id;
-	}
+    public int getIsShipped() {
+        return isShipped;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setIsShipped(int isShipped) {
+        this.isShipped = isShipped;
+    }
 
-	public int getUserId() {
-		return userId;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getDate() {
-		return date;
-	}
+    public int getUserId() {
+        return userId;
+    }
 
-	public void setDate(String date) {
-		this.date = date;
-	}
-	
-	
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 }

@@ -15,6 +15,7 @@
     DecimalFormat df = new DecimalFormat("####0.00");
 
     Item item = (Item) request.getAttribute("item");
+   
 %>
 
 <jsp:include page="<%=Const.PATH_HEAD_JSP%>"/>
@@ -22,7 +23,7 @@
 <!-- /.container -->
 <!-- Page Content -->
 <div class="container">
-    <form action="ListProducts?newProduct=1" method="post">
+    <form action="ListProducts?newProduct=1" method="post" encType="multipart/form-data">
         <div class="form-group">
             <label for="productName">Nom</label>
             <input type="text" class="form-control" id="productName" name="productName" maxlength = "100"s required >
@@ -56,6 +57,10 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1"  name="active" value="1" >
             <label class="form-check-label" for="exampleCheck1" >Actif</label>
         </div>
+        <div class="form-group">
+    <label for="product_image">Ajouter image du produit</label>
+    <input type="file" class="form-control-file" id="product_image">
+  </div>
         <div class="form-group ">
             <button type="submit" class="btn btn-primary">ajouter</button>
             <button type="button" class="btn btn-dark">Annuler</button>
