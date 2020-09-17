@@ -1,0 +1,2 @@
+-Executer le script sur la base de donnee mysql
+ALTER TABLE `user` ADD `user_state` VARCHAR(255) NOT NULL DEFAULT 'ACTIVATED' AFTER `ship_address_id`;

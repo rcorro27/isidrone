@@ -80,8 +80,9 @@
 
                                 <td class="text-center">
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myMod_<%=order.getId()%>">
-                                        <%if (order.getIsShipped() == 1) {%>Annuler  <% } else {%> Expidier  <%}%></button>
-                                    <div id="myMod_<%=order.getId()%>" class="modal fade" role="dialog">
+
+                                        <%if(order.getIsShipped()==1){%>Annuler  <% } else {%> Expidier  <%}%></button>
+ <div id="myMod_<%=order.getId()%>" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
                                             <!-- Modal content-->
                                             <div class="modal-content">
