@@ -239,6 +239,7 @@ public class MAdmin {
             PreparedStatement ps = cnx.prepareStatement(query);
             //PreparedStatement ps = MDB.getPS(query);
             //ps.setInt(1, item.getCategory());
+           /*
             ps.setInt(1, item.getCategory());
             ps.setString(2, item.getName());
             ps.setString(3, item.getDescription());
@@ -247,7 +248,7 @@ public class MAdmin {
             ps.setInt(6, item.getStock());
             ps.setInt(7, item.getActiver());
             ps.setInt(8, item.getId());
-
+*/
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -269,7 +270,7 @@ public class MAdmin {
             PreparedStatement ps = cnx.prepareStatement(query);
             //PreparedStatement ps = MDB.getPS(query);
             //ps.setInt(1, item.getCategory());
-            ps.setInt(1, item.getCategory());
+         /*   ps.setInt(1, item.getCategory());
             ps.setString(2, item.getName());
             ps.setString(3, item.getDescription());
             ps.setDouble(4, item.getPrice());
@@ -277,7 +278,7 @@ public class MAdmin {
             ps.setInt(6, item.getStock());
             ps.setInt(7, item.getActiver());
             ps.setInt(8, item.getId());
-
+*/
             ps.executeUpdate();
 
         } catch (SQLException e) {

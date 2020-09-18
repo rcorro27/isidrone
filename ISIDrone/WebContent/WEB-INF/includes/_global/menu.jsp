@@ -14,7 +14,7 @@
                         <!-- 						La recherche n'est pas fini d'être implementé -->
                         <form class="navbar-form" action="items?">
                             <div id="auto-search" class="form-group"  style="padding-right:0;">
-                                <input class="form-control biginput" id="autocomplet" placeholder="Rechercher" type="text" name="search" autocomplete="off">
+                                <input class="form-control biginput" placeholder="Rechercher" type="text" name="search">
                             </div>
                             <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                         </form>

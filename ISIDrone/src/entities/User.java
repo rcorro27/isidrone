@@ -1,16 +1,19 @@
 package entities;
 
 public class User {
-	int id;
-	String lastName,
-		firstName,
-		email,
-		password;
-	Address shipAddress;
-        int userRole;
-	
-	public User() {}
-	
+
+    int id;
+    String lastName,
+            firstName,
+            email,
+            password;
+    Address shipAddress;
+    int userRole;
+    int idShipAdress;
+
+    public User() {
+    }
+
     public User(int id, String lastName, String firstName, String email, String password, Address shipAddress, int userRole) {
         this.id = id;
         this.lastName = lastName;
@@ -29,8 +32,24 @@ public class User {
         this.userRole = userRole;
     }
 
+    public User(int id, String lastName, String firstName, String email, String password, Address shipAddress, int userRole, int idShipAdress) {
+        this.id = id;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.password = password;
+        this.shipAddress = shipAddress;
+        this.userRole = userRole;
+        this.idShipAdress = idShipAdress;
+    }
 
-    
+    public int getIdShipAdress() {
+        return idShipAdress;
+    }
+
+    public void setIdShipAdress(int idShipAdress) {
+        this.idShipAdress = idShipAdress;
+    }
 
     public int getUserRole() {
         return userRole;
@@ -40,51 +59,51 @@ public class User {
         this.userRole = userRole;
     }
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public Address getShipAddress() {
-		return shipAddress;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Address getShipAddress() {
+        return shipAddress;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setShipAdress(Address adress) {
-		this.shipAddress = adress;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setShipAdress(Address adress) {
+        this.shipAddress = adress;
+    }
 }

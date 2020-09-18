@@ -51,7 +51,10 @@ public class Items extends HttpServlet {
         if (searchResult != null) {
             ActionItems.getSearchItems(searchResult, request, response);
             request.setAttribute(Const.ATTIBUT_SEARCH, searchResult);
+            ActionCategory.getCategories(request, response);
+            request.getRequestDispatcher(Const.PATH_PAGE_ITEMS).forward(request, response);           
         }
+        
         if (Boolean.valueOf(effacer) && effacer != null) {
             if (idCategoryToDelete != null) {
                 itemsCategoryAverifier = ActionItems.getItems(request, response);
