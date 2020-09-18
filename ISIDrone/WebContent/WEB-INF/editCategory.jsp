@@ -59,7 +59,7 @@
             <div class="form-group form-check">
 
                 <%
-        if (item.isActive()) {%>
+        if (cat.isIsActive()) {%>
                 <input type='hidden' value="0" name="active">
 
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" value="2" checked name="test">
@@ -73,7 +73,7 @@
 
                 %>
 
-                <label class="form-check-label" for="exampleCheck1" >Produit valide</label>
+                <label class="form-check-label" for="exampleCheck1" >Categorie valide</label>
             </div>
             <button type="submit" class="btn btn-primary">Modifier</button>
             <button type="button" class="btn btn-dark">Annuler</button>
