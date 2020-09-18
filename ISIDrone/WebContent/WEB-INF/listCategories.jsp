@@ -35,6 +35,8 @@
                                 <tr>
                                     <td><strong>Nom</strong></td>
                                     <td class="text-center"><strong>Ordre d'affichage</strong></td>
+                                    <td class="text-center"><strong>Modifier Categorie</strong></td>
+                                    <td class="text-center"><strong>Supprimer Categorie</strong></td>
                                 </tr>
                             </thead>
                             <%
@@ -49,6 +51,14 @@
                                 <td><%=cat.getName()%></td>
                                 <td class="text-center"><%=cat.getOrder()%></td>
                                 <td class="text-center">
+                                    <a href="editCategory.jsp"><button class="btn btn-info btn-sm">Modifier</button></a>
+                                    </div>
+                                    </div>
+
+                                    </div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal_<%=cat.getId()%>">Supprimer</button>
                                     <div id="myModal_<%=cat.getId()%>" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
@@ -59,7 +69,7 @@
                                                     <h1 class="modal-title">ATTENTION </h1>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h2>Est vous sure de vouloir supprimer cette categorie ?</h2>
+                                                    <h2>Etes vous sur de vouloir supprimer cette categorie ?</h2>
                                                 </div>
                                                 <div class="modal-footer">
 
