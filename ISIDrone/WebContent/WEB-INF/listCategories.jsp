@@ -51,7 +51,7 @@
                                 <td><%=cat.getName()%></td>
                                 <td class="text-center"><%=cat.getOrder()%></td>
                                 <td class="text-center">
-                                    <a href="editCategory.jsp"><button class="btn btn-info btn-sm">Modifier</button></a>
+                                    <a href="editCategory"><button class="btn btn-info btn-sm">Modifier</button></a>
                                     </div>
                                     </div>
 
