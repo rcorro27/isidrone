@@ -5,7 +5,7 @@
  */
 package servlet;
 
-import action.ActionOrder;
+import action.ActionAdmin;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,13 +13,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import util.Const;
 
 /**
  *
- * @author ybenhail
+ * @author rcorroch
  */
-@WebServlet(name = "ListOrders", urlPatterns = {"/listOrders"})
-public class ListOrders extends HttpServlet {
+@WebServlet(name = "ListUsers", urlPatterns = {"/ListUsers"})
+public class ListUsers extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,34 +33,29 @@ public class ListOrders extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String orderASupprimer = request.getParameter("order");
-        String effacer = request.getParameter("effacer");
-        
-
-        if (orderASupprimer != null && Boolean.valueOf(effacer)) {
-            action.ActionAdmin.deleteorder(request, Integer.parseInt(orderASupprimer));
-            ActionOrder.getOrders(request, response);
-            request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
-        } else if (!Boolean.valueOf(effacer)) {
+        response.setContentType("text/html;charset=UTF-8");
+        String afficherUsers = request.getParameter("afficherTout");
+        String userSearch = request.getParameter("search");
+        String search = request.getParameter("rechercher");
+        String modifierUser = request.getParameter("modifierUser");
+        String userId = request.getParameter("userId");
+// voir pourquoi dans le deploiment le code ne functione plus
+        if (Boolean.valueOf(afficherUsers)) {
+            ActionAdmin.getallUsers(request);
+            request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
+        } else if (userSearch != "" && userSearch != null) {
+            ActionAdmin.getallUsersBySearch(request, userSearch);
+            request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
+        } else if (Boolean.valueOf(modifierUser) && userId != null) {
             
-            ActionOrder.getOrders(request, response);
-            request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
+            request.getRequestDispatcher(Const.PATH_PAGE_MODIFIER_USER).forward(request, response);
+        } else {
+            ActionAdmin.getallUsers(request);
+            request.getRequestDispatcher(Const.PATH_PAGE_LIST_USERS).forward(request, response);
+
         }
-        
-        /* if (orderAModifier != null && Boolean.valueOf(update)) {
-             if (state=="1"){
-              action.ActionAdmin.updateShippedOrderState(request, 0,Integer.parseInt(orderAModifier));   
-             }else {
-                 action.ActionAdmin.updateShippedOrderState(request, 1,Integer.parseInt(orderAModifier));  
-             }
-            
-            ActionOrder.getOrders(request, response);
-            request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
-        } else if (!Boolean.valueOf(update)) {
-            ActionOrder.getOrders(request, response);
-            request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
-        }*/
 
+        /* TODO output your page here. You may use following sample code. */
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -75,7 +71,6 @@ public class ListOrders extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-       
     }
 
     /**

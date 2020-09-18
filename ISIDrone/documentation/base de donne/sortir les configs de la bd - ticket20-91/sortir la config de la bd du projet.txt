@@ -1,0 +1,26 @@
+ISIDE20-91 : Sortir la configuration de la base de donnee du projet 
+
+1 - Supprimez le fichier configs.properties de votre projet ISIDrone (si il est toujours present)
+
+
+2 - Sur votre machine creer le repertoire : C:\isidrone\config
+
+
+3 - Ajouter le fichier configs.properties dans le repertoire que vous venez de creer (config)
+
+4 - Ouvrir le fichier dans catalina.bat (Il se trouve dans le repertoire bin de votre dossier d'installation tomcat)
+
+A la fin des commentaires rem, ajoutez la ligne suivante : 
+
+set configsDbPath=C:\isidrone\config\configs.properties
+
+
+5 - Enregistrez votre fichier catalina.bat
+
+
+6 - Faites un clean and build avant de lancer a nouveau le projet sinon redemarrez votre ordinateur avant de relancer le projet
+
+
+
+NB : Vous pouvez retrouver le fichier config.properties dans le repertoire courant
+

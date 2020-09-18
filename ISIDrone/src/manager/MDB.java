@@ -26,9 +26,9 @@ public class MDB extends HttpServlet{
 	public static void connect() throws SQLException, FileNotFoundException, IOException {
 		try {
                         Properties properties = new Properties();
-                        //properties.load(new FileInputStream("C:\\dev\\devint\\devint_e20\\ISIDrone\\src\\util\\configs.properties"));
-                        String fileName = "configs.properties";
-                        InputStream input = MDB.class.getClassLoader().getResourceAsStream(fileName);  
+                        String varEnv = "configsDbPath";
+                        String fileName = System.getenv(varEnv); 
+                        InputStream input = new FileInputStream(fileName);
                         properties.load(input);
                         
                         dbName = properties.getProperty("DB_NAME");
@@ -39,7 +39,7 @@ public class MDB extends HttpServlet{
                         
 			Class.forName("com.mysql.cj.jdbc.Driver");
                         String mysqlURL = "jdbc:mysql://" + dbIp + ":" + dbPort + "/" + dbName + "?serverTimezone=UTC" ;
-			connection = DriverManager.getConnection(mysqlURL, "root", "abc123...");
+			connection = DriverManager.getConnection(mysqlURL, dbUsername, dbPassword);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

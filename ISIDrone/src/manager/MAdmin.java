@@ -5,6 +5,7 @@
  */
 package manager;
 
+import entities.Address;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import entities.Item;
+import entities.User;
 import java.io.IOException;
 import java.sql.Connection;
 
@@ -134,4 +136,156 @@ public class MAdmin {
         return deleteOrderTrue > 0;
     }
 
+    public static void updateShippedOrderState(int isShipped, int id) throws IOException {
+        try {
+            MDB.connect();
+            Connection cnx = MDB.connection();
+            String query = "UPDATE `order` SET `isShipped` = ? WHERE `order`.`id`=?";
+            PreparedStatement ps = cnx.prepareStatement(query);
+            //PreparedStatement ps = MDB.getPS(query);
+            //ps.setInt(1, item.getCategory());
+            ps.setInt(1, isShipped);
+            ps.setInt(2, id);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+    }
+
+    public static ArrayList<User> getallusers() throws IOException {
+        ArrayList<User> users = new ArrayList<User>();
+        try {
+            MDB.connect();
+            String query;
+            PreparedStatement preparedStatement;
+            ResultSet resultset;
+
+            query = "SELECT * FROM isidrone.user where userRole not like '1'";
+            preparedStatement = MDB.getPS(query);
+
+            resultset = preparedStatement.executeQuery();
+
+            while (resultset.next()) {
+                users.add(getUserFromResultSet(resultset));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+        return users;
+    }
+
+    private static User getUserFromResultSet(ResultSet resultset) {
+
+        User user = new User();
+
+        try {
+            user.setId(resultset.getInt("id"));
+            user.setLastName(resultset.getString("lastName"));
+            user.setFirstName(resultset.getString("firstName"));
+            user.setEmail(resultset.getString("email"));
+            user.setUserRole(resultset.getInt("userRole"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    public static ArrayList<User> getSearchUser(String search) throws IOException {
+        //test
+        ArrayList<User> users = new ArrayList<>();
+        try {
+            MDB.connect();
+            String query;
+            PreparedStatement ps;
+            ResultSet rs;
+
+            //query = "select * from product where upper(name) like upper(?) or upper(description) like upper(?) ;";
+            query = "select * from user where upper(firstName) like upper( ? ) or upper(lastName) like upper( ? ) or upper(email) like upper( ? ) and userRole not like '1' ;";
+            ps = MDB.getPS(query);
+            ps.setString(1, "%" + search + "%");
+            ps.setString(2, "%" + search + "%");
+            ps.setString(3, "%" + search + "%");
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                users.add(getUserFromResultSet(rs));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        return users;
+
+    }
+
+    public static void updateUser(User user) throws IOException {
+        //Item item = null;
+
+        try {
+            MDB.connect();
+            Connection cnx = MDB.connection();
+            String query = "update product set category=? ,name =?,description=?, price=?,serialNumber=?,stockQty=? ,isActive=? where id =?";
+            PreparedStatement ps = cnx.prepareStatement(query);
+            //PreparedStatement ps = MDB.getPS(query);
+            //ps.setInt(1, item.getCategory());
+            ps.setInt(1, item.getCategory());
+            ps.setString(2, item.getName());
+            ps.setString(3, item.getDescription());
+            ps.setDouble(4, item.getPrice());
+            ps.setString(5, item.getSerial());
+            ps.setInt(6, item.getStock());
+            ps.setInt(7, item.getActiver());
+            ps.setInt(8, item.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        //return item;
+    }
+
+    public static void updateUser(Address adresse) throws IOException {
+        //Item item = null;
+
+        try {
+            MDB.connect();
+            Connection cnx = MDB.connection();
+            String query = "update product set category=? ,name =?,description=?, price=?,serialNumber=?,stockQty=? ,isActive=? where id =?";
+            PreparedStatement ps = cnx.prepareStatement(query);
+            //PreparedStatement ps = MDB.getPS(query);
+            //ps.setInt(1, item.getCategory());
+            ps.setInt(1, item.getCategory());
+            ps.setString(2, item.getName());
+            ps.setString(3, item.getDescription());
+            ps.setDouble(4, item.getPrice());
+            ps.setString(5, item.getSerial());
+            ps.setInt(6, item.getStock());
+            ps.setInt(7, item.getActiver());
+            ps.setInt(8, item.getId());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        //return item;
+    }
 }

@@ -8,20 +8,20 @@
          pageEncoding="UTF-8"%>
 <style>
     #userAction {
-      display: none;
-    position: absolute;
-    z-index: 1;
-    background-color: white;
-    width: 200px;
-    margin-top: 10px;
-    margin-left: -121px;
+        display: none;
+        position: absolute;
+        z-index: 1;
+        background-color: white;
+        width: 200px;
+        margin-top: 10px;
+        margin-left: -121px;
 
-}
-    
-#menuA{
+    }
+
+    #menuA{
         margin:0 0 10px 0;   
 
-}
+    }
 </style>
 <%
 //S'il n'y a pas d'utilisateur déjà de connecté
@@ -45,19 +45,16 @@
         <li><a  href="ListProducts?ajouterItem=1">Ajouter un produit</a></li>
         <li><a  href="listCategories">Categories</a></li> 
         <li><a  href="newCategory">Ajouter categorie</a></li> 
-<<<<<<< HEAD
         <li><a  href="editCategory">Modifier categorie</a></li>
-        <li><a  href="listOrders">Commandes</a></li> 
-=======
-        <li><a  href="listOrders?effacer=false">Commandes</a></li> 
+        <li><a  href="listOrders?effacer=false">Commandes</a></li>
+        <li><a href="ListUsers?afficherTout=true">Afficher Utilisateurs</a></li>
         <li><a  href="editCategory">Modifier categorie</a></li>
-=======
->>>>>>> 537e6289e5691f2636c2589a819063179d75e280
->>>>>>> d5871f38a1c48c80cc6914d682cfd1b4405e2239
-<% } else {%>
-         <li><a href="<%="order-history"%>">Historique commande</a></li>
+
+        <% } else {%>
+        <li><a href="<%="order-history"%>">Historique commande</a></li>
             <% } %>    
-        
+
+
         <li><a href="login">Déconnexion</a></li>
 
     </ul>

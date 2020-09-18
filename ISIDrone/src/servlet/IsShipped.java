@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ybenhail
  */
-@WebServlet(name = "ListOrders", urlPatterns = {"/listOrders"})
-public class ListOrders extends HttpServlet {
+@WebServlet(name = "IsShipped", urlPatterns = {"/isShipped"})
+public class IsShipped extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,22 +32,11 @@ public class ListOrders extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String orderASupprimer = request.getParameter("order");
-        String effacer = request.getParameter("effacer");
-        
-
-        if (orderASupprimer != null && Boolean.valueOf(effacer)) {
-            action.ActionAdmin.deleteorder(request, Integer.parseInt(orderASupprimer));
-            ActionOrder.getOrders(request, response);
-            request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
-        } else if (!Boolean.valueOf(effacer)) {
-            
-            ActionOrder.getOrders(request, response);
-            request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
-        }
-        
-        /* if (orderAModifier != null && Boolean.valueOf(update)) {
-             if (state=="1"){
+        String orderAModifier = request.getParameter("order");
+        String update = request.getParameter("update");
+        String state= request.getParameter("etat");
+        if (orderAModifier != null && Boolean.valueOf(update)) {
+             if (state.equals("1")){
               action.ActionAdmin.updateShippedOrderState(request, 0,Integer.parseInt(orderAModifier));   
              }else {
                  action.ActionAdmin.updateShippedOrderState(request, 1,Integer.parseInt(orderAModifier));  
@@ -58,8 +47,7 @@ public class ListOrders extends HttpServlet {
         } else if (!Boolean.valueOf(update)) {
             ActionOrder.getOrders(request, response);
             request.getRequestDispatcher("/WEB-INF/listOrders.jsp").forward(request, response);
-        }*/
-
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -75,7 +63,6 @@ public class ListOrders extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-       
     }
 
     /**

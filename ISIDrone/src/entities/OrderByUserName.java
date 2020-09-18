@@ -12,9 +12,24 @@ import java.util.Date;
  * @author ybenhail
  */
 public class OrderByUserName {
-    private int id;
+    private int id,isShipped;
     private String nameUser;
     private Date dateOrder;
+
+    public int getIsShipped() {
+        return isShipped;
+    }
+
+    public void setIsShipped(int isShipped) {
+        this.isShipped = isShipped;
+    }
+
+    public OrderByUserName(int id, String nameUser, Date dateOrder, int isShipped) {
+        this.id = id;
+        this.isShipped = isShipped;
+        this.nameUser = nameUser;
+        this.dateOrder = dateOrder;
+    }
 
     public OrderByUserName(int id, String nameUser, Date dateOrder) {
         this.id = id;
@@ -48,6 +63,7 @@ public class OrderByUserName {
 
     public OrderByUserName() {
     }
+    
     
     
 }
