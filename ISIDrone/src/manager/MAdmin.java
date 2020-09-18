@@ -15,7 +15,10 @@ import java.util.logging.Logger;
 import entities.Item;
 import entities.User;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
+import util.Hash;
 
 /**
  *
@@ -239,7 +242,7 @@ public class MAdmin {
             PreparedStatement ps = cnx.prepareStatement(query);
             //PreparedStatement ps = MDB.getPS(query);
             //ps.setInt(1, item.getCategory());
-           /*
+            /*
             ps.setInt(1, item.getCategory());
             ps.setString(2, item.getName());
             ps.setString(3, item.getDescription());
@@ -248,7 +251,7 @@ public class MAdmin {
             ps.setInt(6, item.getStock());
             ps.setInt(7, item.getActiver());
             ps.setInt(8, item.getId());
-*/
+             */
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -260,7 +263,7 @@ public class MAdmin {
         //return item;
     }
 
-    public static void updateUser(Address adresse) throws IOException {
+    public static void updateAdresse(Address adresse) throws IOException {
         //Item item = null;
 
         try {
@@ -270,7 +273,7 @@ public class MAdmin {
             PreparedStatement ps = cnx.prepareStatement(query);
             //PreparedStatement ps = MDB.getPS(query);
             //ps.setInt(1, item.getCategory());
-         /*   ps.setInt(1, item.getCategory());
+            /*   ps.setInt(1, item.getCategory());
             ps.setString(2, item.getName());
             ps.setString(3, item.getDescription());
             ps.setDouble(4, item.getPrice());
@@ -278,7 +281,7 @@ public class MAdmin {
             ps.setInt(6, item.getStock());
             ps.setInt(7, item.getActiver());
             ps.setInt(8, item.getId());
-*/
+             */
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -288,5 +291,36 @@ public class MAdmin {
         }
 
         //return item;
+    }
+
+    public static User getUserInfo(int id) throws IOException {
+        User user = null;
+        Address address = null;
+        PreparedStatement ps = null;
+
+        try {
+            MDB.connect();
+
+            String query = "SELECT user.id,user.lastName, user.firstName, user.email,user.ship_address_id, address.no, address.appt, address.street, address.zip, address.city, address.state, address.country , user.userRole \n"
+                    + "FROM user INNER JOIN address on user.ship_address_id = address.id WHERE user.id = ? ";
+            ps = MDB.getPS(query);
+
+            ps.setInt(1, id);
+            ps.executeQuery();
+
+            ResultSet rs = ps.getResultSet();
+
+            if (rs.next()) {
+                address = new Address(rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9),
+                        rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13));
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), address, rs.getInt(14));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        return user;
     }
 }

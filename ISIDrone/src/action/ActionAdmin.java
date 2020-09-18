@@ -24,6 +24,10 @@ public class ActionAdmin {
         request.setAttribute("listusers", MAdmin.getallusers());
     }
 
+    public static void getUserById(int id, HttpServletRequest request) throws IOException {
+        request.setAttribute("user", MAdmin.getUserInfo(id));
+    }
+
     public static void getallUsersBySearch(HttpServletRequest request, String search) throws IOException {
         request.setAttribute("listusers", MAdmin.getSearchUser(search));
     }
@@ -35,8 +39,9 @@ public class ActionAdmin {
     public static boolean deleteorder(HttpServletRequest request, int id) throws IOException {
         return MAdmin.DeleteOrder(id);
     }
-     public static void updateShippedOrderState(HttpServletRequest request, int id,int isShipped) throws IOException {
-         MAdmin.updateShippedOrderState(id,isShipped);
+
+    public static void updateShippedOrderState(HttpServletRequest request, int id, int isShipped) throws IOException {
+        MAdmin.updateShippedOrderState(id, isShipped);
     }
 
     public static boolean additem(HttpServletRequest request, Item item) throws IOException {

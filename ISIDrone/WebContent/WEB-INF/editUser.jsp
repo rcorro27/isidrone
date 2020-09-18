@@ -16,6 +16,7 @@
     DecimalFormat df = new DecimalFormat("####0.00");
 
     User user = (User) request.getAttribute("user");
+    ArrayList<User> users = (ArrayList<User>) request.getAttribute("listusers");
 %>
 
 <jsp:include page="<%=Const.PATH_HEAD_JSP%>"/>
