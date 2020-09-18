@@ -208,9 +208,10 @@ public class MAdmin {
             String query;
             PreparedStatement ps;
             ResultSet rs;
-
+            // si tu mets pas de parentheses dans avant le premier upper et avant le and , ca va juste voir la premier condition
+            // elle si elle est vrait elle ne regadera plus les autres 
             //query = "select * from product where upper(name) like upper(?) or upper(description) like upper(?) ;";
-            query = "select * from user where upper(firstName) like upper( ? ) or upper(lastName) like upper( ? ) or upper(email) like upper( ? ) and userRole not like '1' ;";
+            query = "select * from user where ( upper(firstName) like upper( ? ) or upper(lastName) like upper( ? ) or upper(email) like upper( ? ) ) and userRole not like '1' ;";
             ps = MDB.getPS(query);
             ps.setString(1, "%" + search + "%");
             ps.setString(2, "%" + search + "%");
